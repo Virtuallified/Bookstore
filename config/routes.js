@@ -18,16 +18,11 @@ module.exports.routes = {
    * `assets` directory)                                                      *
    *                                                                          *
    ***************************************************************************/
-
-  '/': {
+  // For Normal Page View Load
+  /* '/': {
     view: 'pages/home'
-  },
-  '/login': {
-    view: 'pages/login'
-  },
-  '/register': {
-    view: 'pages/register'
-  },
+  }, */
+
   // For API's (Postman)
   /* 
   'GET /Books': 'Books.allbooks',
@@ -36,14 +31,19 @@ module.exports.routes = {
   'PUT /Books/:id': 'Books.update',
   'DELETE /Books/:id': 'Books.delete',
    */
+
   // For WebApp Routing
+  'GET /': 'Home.index',
+  'GET /Login': 'Login.index',
+  'GET /Register': 'Register.index',
+  /*
   'GET /Books': 'Books.allbooks',
   'GET /Books/Show/:id': 'Books.onebook',
   'POST /Books/Create': 'Books.create',
   'PUT /Books/:id': 'Books.update',
   'DELETE /Books/:id': 'Books.delete',
   'POST /': 'Books.edit'
-
+  */
 
   /***************************************************************************
    *                                                                          *
