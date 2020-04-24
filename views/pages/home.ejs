@@ -8,7 +8,7 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Bookstore<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<!-- %= sails.getUrlFor('') % -->">Bookstore<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/Login">Login</a>
@@ -36,7 +36,7 @@
 <main role="main">
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="margin-left: 0em;">
     <br>
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -128,5 +128,8 @@
 </footer>
 
 <script>
+  $(function () {
+
+  })
 
 </script>

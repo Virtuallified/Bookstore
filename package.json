@@ -9,6 +9,7 @@
     "Book keeping"
   ],
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "@sailshq/connect-redis": "^3.2.1",
     "@sailshq/lodash": "^3.10.3",
     "@sailshq/socket.io-redis": "^5.2.0",

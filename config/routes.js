@@ -22,6 +22,12 @@ module.exports.routes = {
   '/': {
     view: 'pages/home'
   },
+  '/login': {
+    view: 'pages/login'
+  },
+  '/register': {
+    view: 'pages/register'
+  },
   // For API's (Postman)
   /* 
   'GET /Books': 'Books.allbooks',
