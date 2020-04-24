@@ -66,6 +66,12 @@ module.exports = function (grunt) {
           cwd: './node_modules',
           src: ['sweetalert2/dist/sweetalert2.min.css'],
           dest: '.tmp/public/styles'
+        },
+        {
+          expand: true,
+          cwd: './node_modules',
+          src: ['@fortawesome/fontawesome-free/js/all.min.js'],
+          dest: '.tmp/public/js'
         }
       ]
     },

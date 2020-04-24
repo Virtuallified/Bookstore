@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>New Sails App</title>
 
-    <!-- Viewport mobile tag for sensible mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <title>Bookstore</title>
 
-    <%/* If you want to discourage search engines from indexing this site, uncomment the following line: */%>
-    <%/* <meta name="robots" content="noindex"> */%>
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <%/* If you want to discourage search engines from indexing this site, uncomment the following line: */%>
+  <%/* <meta name="robots" content="noindex"> */%>
 
 
-    <!--
+  <!--
         Stylesheets and Preprocessors
         ==============================
 
@@ -31,20 +32,24 @@
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
 
-    <!--STYLES-->
-    <link rel="stylesheet" href="/styles/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/styles/importer.css">
-    <link rel="stylesheet" href="/styles/select2/dist/css/select2.min.css">
-    <link rel="stylesheet" href="/styles/sweetalert2/dist/sweetalert2.min.css">
-    <!--STYLES END-->
-  </head>
+  <!--STYLES-->
+  <link rel="stylesheet" href="/styles/adminlte3/adminlte.min.css">
+  <link rel="stylesheet" href="/styles/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/styles/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/importer.css">
+  <link rel="stylesheet" href="/styles/select2/dist/css/select2.min.css">
+  <link rel="stylesheet" href="/styles/sticky-footer/sticky-footer.css">
+  <link rel="stylesheet" href="/styles/sweetalert2/dist/sweetalert2.min.css">
+  <!--STYLES END-->
+  <script src="/js/jquery/dist/jquery.js"></script>
+</head>
 
-  <body>
-    <%- body %>
+<body>
+  <%- body %>
 
 
 
-    <!--
+  <!--
         Client-side Templates
         ========================
 
@@ -65,11 +70,11 @@
               stringfile before they're served.
     -->
 
-    <!--TEMPLATES-->
-    <!--TEMPLATES END-->
+  <!--TEMPLATES-->
+  <!--TEMPLATES END-->
 
 
-    <!--
+  <!--
         Server-side View Locals
         ========================
 
@@ -85,7 +90,7 @@
     -->
 
 
-    <!--
+  <!--
 
       Client-side Javascript
       ========================
@@ -108,13 +113,19 @@
 
     -->
 
-    <!--SCRIPTS-->
-    <script src="/dependencies/sails.io.js"></script>
-    <script src="/js/axios/dist/axios.min.js"></script>
-    <script src="/js/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/js/jquery/dist/jquery.js"></script>
-    <script src="/js/select2/dist/js/select2.min.js"></script>
-    <script src="/js/sweetalert2/dist/sweetalert2.min.js"></script>
-    <!--SCRIPTS END-->
-  </body>
+  <!--SCRIPTS-->
+  <script src="/dependencies/sails.io.js"></script>
+  <script src="/js/@fortawesome/fontawesome-free/js/all.min.js"></script>
+  <script src="/js/adminlte3/adminlte.min.js"></script>
+  <script src="/js/axios/dist/axios.min.js"></script>
+  <script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/js/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="/js/jquery/dist/jquery.js"></script>
+  <script src="/js/jquery/jquery.min.js"></script>
+  <script src="/js/jquery/jquery.slim.min.js"></script>
+  <script src="/js/select2/dist/js/select2.min.js"></script>
+  <script src="/js/sweetalert2/dist/sweetalert2.min.js"></script>
+  <!--SCRIPTS END-->
+</body>
+
 </html>
