@@ -11,12 +11,24 @@
 module.exports.policies = {
 
   /***************************************************************************
-  *                                                                          *
-  * Default policy for all controllers and actions, unless overridden.       *
-  * (`true` allows public access)                                            *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   * Default policy for all controllers and actions, unless overridden.       *
+   * (`true` allows public access)                                            *
+   *                                                                          *
+   ***************************************************************************/
 
-  // '*': true,
+  // '*': 'Authentication',
+  // // Whitelist the Auth Controller
+  // 'auth': {
+  //   '*': true
+  // }
+
+  '*': true,
+  'admin/Dashboard': {
+    '*': 'Authentication',
+  },
+  'Auth': {
+    '*': true
+  }
 
 };

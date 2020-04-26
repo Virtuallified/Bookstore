@@ -18,11 +18,6 @@ module.exports.routes = {
    * `assets` directory)                                                      *
    *                                                                          *
    ***************************************************************************/
-  // For Normal Page View Load
-  /* '/': {
-    view: 'pages/home'
-  }, */
-
   // For API's (Postman)
   /* 
   'GET /Books': 'Books.allbooks',
@@ -34,8 +29,16 @@ module.exports.routes = {
 
   // For WebApp Routing
   'GET /': 'Home.index',
-  'GET /Login': 'Login.index',
-  'GET /Register': 'Register.index',
+  'GET /Login': {
+    view: 'pages/login'
+  },
+  'GET /Register': {
+    view: 'pages/register'
+  },
+  'GET /Logout': 'Auth.logout',
+  'POST /Login': 'Auth.login',
+  'POST /Register': 'Auth.register',
+  'GET /Dashboard': 'admin/Dashboard.index',
   /*
   'GET /Books': 'Books.allbooks',
   'GET /Books/Show/:id': 'Books.onebook',
