@@ -19,29 +19,35 @@ module.exports = function (grunt) {
           src: ['**/*.!(coffee|less)'],
           dest: '.tmp/public'
         },
+        // {
+        //   expand: true,
+        //   cwd: './node_modules',
+        //   src: ['bootstrap/dist/css/bootstrap.min.css'],
+        //   dest: '.tmp/public/styles'
+        // },
+        // {
+        //   expand: true,
+        //   cwd: './node_modules',
+        //   src: ['bootstrap/dist/js/bootstrap.min.js'],
+        //   dest: '.tmp/public/js'
+        // },
         {
           expand: true,
           cwd: './node_modules',
-          src: ['bootstrap/dist/css/bootstrap.css'],
-          dest: '.tmp/public/styles'
+          src: ['bootstrap/dist/js/bootstrap.bundle.min.js'],
+          dest: '.tmp/public/js/_2'
         },
         {
           expand: true,
           cwd: './node_modules',
-          src: ['bootstrap/dist/js/bootstrap.js'],
-          dest: '.tmp/public/js'
-        },
-        {
-          expand: true,
-          cwd: './node_modules',
-          src: ['jquery/dist/jquery.js'],
-          dest: '.tmp/public/js'
+          src: ['jquery/dist/jquery.min.js'],
+          dest: '.tmp/public/js/_1'
         },
         {
           expand: true,
           cwd: './node_modules',
           src: ['select2/dist/js/select2.min.js'],
-          dest: '.tmp/public/js'
+          dest: '.tmp/public/js/_3'
         },
         {
           expand: true,
@@ -53,13 +59,13 @@ module.exports = function (grunt) {
           expand: true,
           cwd: './node_modules',
           src: ['axios/dist/axios.min.js'],
-          dest: '.tmp/public/js'
+          dest: '.tmp/public/js/_2'
         },
         {
           expand: true,
           cwd: './node_modules',
           src: ['sweetalert2/dist/sweetalert2.min.js'],
-          dest: '.tmp/public/js'
+          dest: '.tmp/public/js/_2'
         },
         {
           expand: true,
@@ -71,7 +77,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: './node_modules',
           src: ['@fortawesome/fontawesome-free/js/all.min.js'],
-          dest: '.tmp/public/js'
+          dest: '.tmp/public/js/_2'
         }
       ]
     },
