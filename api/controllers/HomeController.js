@@ -7,6 +7,8 @@
 
 module.exports = {
   index: (req, res) => {
-    res.view('pages/home')
-  },
+    res.view('pages/home', {
+      layout: 'layouts/layout-public'
+    })
+  }
 };

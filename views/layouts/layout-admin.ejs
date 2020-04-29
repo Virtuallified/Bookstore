@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Bookstore | Account</title>
+
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <%/* If you want to discourage search engines from indexing this site, uncomment the following line: */%>
+  <%/* <meta name="robots" content="noindex"> */%>
+
+  <!--STYLES-->
+  <link rel="stylesheet" href="/styles/adminlte3/adminlte.min.css">
+  <link rel="stylesheet" href="/styles/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="/styles/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/importer.css">
+  <link rel="stylesheet" href="/styles/overlayScrollbars/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="/styles/select2/dist/css/select2.min.css">
+  <link rel="stylesheet" href="/styles/sweetalert2/dist/sweetalert2.min.css">
+  <link rel="stylesheet" href="/styles/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
+  <!--STYLES END-->
+</head>
+
+<body>
+  <%- body %>
+
+  <!--TEMPLATES-->
+  <!--TEMPLATES END-->
+
+  <!--SCRIPTS-->
+  <script src="/dependencies/sails.io.js"></script>
+  <script src="/js/_1/jquery/dist/jquery.min.js"></script>
+  <script src="/js/_1/jqueryui/jquery-ui.min.js"></script>
+  <script src="/js/_2/@fortawesome/fontawesome-free/js/all.min.js"></script>
+  <script src="/js/_2/axios/dist/axios.min.js"></script>
+  <script src="/js/_2/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/_2/daterangepicker/daterangepicker.js"></script>
+  <script src="/js/_2/moment/moment.min.js"></script>
+  <script src="/js/_2/sweetalert2/dist/sweetalert2.min.js"></script>
+  <script src="/js/_3/adminlte3/adminlte.min.js"></script>
+  <script src="/js/_3/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
+  <script src="/js/_3/select2/dist/js/select2.min.js"></script>
+  <script src="/js/_3/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js"></script>
+  <!--SCRIPTS END-->
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+
+  </script>
+</body>
+
+</html>
