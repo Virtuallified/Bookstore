@@ -1,0 +1,85 @@
+<div class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+    <!-- Header -->
+    <% include ./partials/header %>
+    <!-- ./Header -->
+    <!-- Main Sidebar Container -->
+    <% include ./partials/sidebar %>
+    <!-- ./Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Breadcrumb -->
+      <% include ./partials/breadcrumb %>
+      <!-- ./Breadcrumb -->
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="shadow-lg p-3 mb-0 bg-white rounded">
+          <!-- <div class="card"> -->
+          <div class="card-header">
+            <h3 class="card-title">All Books in Bookstore</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="bookTable" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Book</th>
+                  <th>Author</th>
+                  <th>Publisher</th>
+                  <th>ISBN</th>
+                  <th>Price</th>
+                  <th>Genre</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% books.forEach(function(book) { %>
+                <tr>
+                  <td><%= book.book %></td>
+                  <td><%= book.author %></td>
+                  <td><%= book.publisher %></td>
+                  <td><%= book.isbn_10 %>
+                    <br><%= book.isbn_13 %></td>
+                  <td><%= book.price %></td>
+                  <td><%= book.genre %></td>
+                  <td>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-outline-primary"><i class="fas fa-eye"></i></button>
+                      <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
+                      <button type="button" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+          <!-- </div> -->
+          <!-- /.card -->
+        </div>
+        <br>
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <% include ./partials/footer %>
+
+  </div>
+  <!-- ./wrapper -->
+</div>
+<script>
+  $(function () {
+    $('#bookTable').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  })
+
+</script>

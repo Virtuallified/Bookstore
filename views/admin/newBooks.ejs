@@ -1,0 +1,170 @@
+<div class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+    <!-- Header -->
+    <% include ./partials/header %>
+    <!-- ./Header -->
+    <!-- Main Sidebar Container -->
+    <% include ./partials/sidebar %>
+    <!-- ./Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Breadcrumb -->
+      <% include ./partials/breadcrumb %>
+      <!-- ./Breadcrumb -->
+
+      <!-- Main content -->
+      <section class="content">
+
+        <form class="shadow-lg p-3 mb-0 bg-white rounded">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="InputBook">Book</label>
+                <input class="form-control" name="book_name" placeholder="Enter Book's name">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="InputBook">Author</label>
+                <input class="form-control" name="author_name" placeholder="Enter Author's name">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="InputBook">Publisher</label>
+                <input class="form-control" name="publisher_name" placeholder="Enter Publisher's name">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="InputBook">ISBN 10</label>
+                <input class="form-control" name="isbn10" placeholder="Enter ISBN 10">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="InputBook">ISBN 13</label>
+                <input class="form-control" name="isbn13" placeholder="Enter ISBN 13">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="InputBook">Price</label>
+                <input class="form-control" name="price" placeholder="Enter price of the book">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="InputBook">Genre</label>
+                <select class="js-example-tokenizer form-control" multiple="multiple" style="width: 100%;" name="genre">
+                  <option>Fiction</option>
+                  <option>Non-Fiction</option>
+                  <option>Action</option>
+                  <option>Fantasy</option>
+                  <option>Science fiction</option>
+                  <option>Western</option>
+                  <option>Romance</option>
+                  <option>Thriller</option>
+                  <option>Mystery</option>
+                  <option>Detective</option>
+                  <option>Dystopia</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="InputBook">Type</label>
+                <select class="js-example-tokenizer form-control" multiple="multiple" style="width: 100%;" name="type">
+                  <option>Paperback</option>
+                  <option>Hardcover</option>
+                  <option>Audiobook</option>
+                  <option>Kindle Ver.</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="InputBook">Language</label>
+                <input class="form-control" name="lang" placeholder="Enter Language eg. English / Bengali">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                <label for="InputBook">Cover</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01" name="imgLink"
+                      aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+              <div class="form-group"><br>
+                <button id="submit" type="button" style="margin-top: 5%;" class="btn btn-primary btn-block">Keep
+                  It!</button>
+              </div>
+            </div>
+          </div>
+
+        </form>
+
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <% include ./partials/footer %>
+
+  </div>
+  <!-- ./wrapper -->
+</div>
+
+<script>
+  $(document).ready(function () {
+    $('.js-example-tokenizer').select2({
+      tags: true,
+      tokenSeparators: [',', ' ']
+    });
+    $('#submit').click(function () {
+      // Send a POST request
+      var dataString = {
+        book_name: $("input[name='book_name']").val(),
+        author_name: $("input[name='author_name']").val(),
+        publisher_name: $("input[name='publisher_name']").val(),
+        isbn10: $("input[name='isbn10']").val(),
+        isbn13: $("input[name='isbn13']").val(),
+        price: $("input[name='price']").val(),
+        img_link: $("input[name='imgLink']").val(),
+        genre: $("select[name='genre']").val(),
+        type: $("select[name='type']").val(),
+        lang: $("input[name='lang']").val(),
+      }
+      // console.log(dataString)
+      $.ajax({
+        method: 'POST',
+        url: '/Books/Create',
+        data: dataString,
+        success: function (result) {
+          Swal.fire(
+            'Successfully',
+            'Inserted 1 Book!',
+            'success'
+          )
+          // console.log('Successfully Inserted')
+        }
+      })
+    })
+  });
+
+</script>
