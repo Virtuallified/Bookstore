@@ -47,7 +47,8 @@
                     <div class="btn-group">
                       <button type="button" class="btn btn-outline-primary"><i class="fas fa-eye"></i></button>
                       <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
-                      <button type="button" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                      <button type="button" class="btn btn-outline-danger delete" value="<%= book.id%>"><i
+                          class="fas fa-trash"></i></button>
                     </div>
                   </td>
                 </tr>
@@ -79,6 +80,21 @@
       "info": true,
       "autoWidth": false,
       "responsive": true,
+    });
+    $('.delete').click(function () {
+      // console.log($(this).val())
+      $.ajax({
+        method: 'DELETE',
+        url: '/Books/Delete/' + $(this).val(),
+        success: function (result) {
+          Swal.fire(
+            'Successfully',
+            'Deleted the Book!',
+            'success'
+          )
+          // console.log('Successfully Inserted')
+        }
+      })
     });
   })
 

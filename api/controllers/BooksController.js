@@ -124,11 +124,7 @@ module.exports = {
         err: 'Invalid Param : price'
       })
     }
-    // if (!imgLink) {
-    //   return res.badRequest({
-    //     err: 'Invalid Param : book_img'
-    //   })
-    // }
+
     // Create Inventory & Books
     const insertNewBook = async () => {
       try {
@@ -167,7 +163,7 @@ module.exports = {
         } catch (err) {
           throw err
         }
-        console.log('Problem is :', err);
+        // console.log('Problem is :', err);
         if (err.code = "E_UNIQUE") {
           res.status(403).send("ISBN already exists in Bookstore")
         } else {
@@ -232,30 +228,41 @@ module.exports = {
   //     .catch(err => res.ok(err))
   // },
 
-  // /**
-  //  * `BooksController.delete()`
-  //  */
-  // delete: async function (req, res) {
-  //   let mongo_bookId = req.params.id
-  //   // console.log(mongo_bookId)
-  //   if (!mongo_bookId) {
-  //     return res.badRequest({
-  //       err: ('Invalid mongo_bookId')
-  //     })
-  //   }
-  //   const makeRequest = async () => {
-  //     try {
-  //       const deleteBook = await Books.destroy({
-  //         id: mongo_bookId
-  //       }).then(books => {
-  //         res.ok(`Book has been successfully deleted with ID : ${mongo_bookId}`)
-  //       }).catch(err => res.serverError(err))
-  //     } catch (err) {
-  //       throw err
-  //     }
-  //   }
-  //   makeRequest()
-  //     .catch(err => res.notFound(err))
-  // }
+  /**
+   * `BooksController.delete()`
+   */
+  delete: async function (req, res) {
+    let mongo_bookId = req.params.id
+    // console.log(mongo_bookId)
+    if (!mongo_bookId) {
+      return res.badRequest({
+        err: ('Invalid mongo_bookId')
+      })
+    }
+    const makeItDelete = async () => {
+      try {
+        // Fine the inventory id via book id
+        const findBook = await Books.findOne({
+            id: mongo_bookId
+          })
+          .populate('_Inventory')
+        // sails.log(findBook)
+        // Delete the book 
+        const deleteBook = await Books.destroy({
+          id: mongo_bookId
+        }).catch(err => res.serverError(err))
+        // Delete the inventory
+        const deleteInventory = await Inventory.destroy({
+          id: findBook._Inventory.id
+        }).then(inventory => {
+          res.ok(`Successfully deleted data with Book ID : ${mongo_bookId} & Inventory ID : ${findBook._Inventory.id}`)
+        }).catch(err => res.serverError(err))
+      } catch (err) {
+        throw err
+      }
+    }
+    makeItDelete()
+      .catch(err => res.notFound(err))
+  }
 
 };
