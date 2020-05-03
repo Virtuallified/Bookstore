@@ -194,8 +194,19 @@
             'Successfully',
             '<% if (res.locals.book) { %>Updated<% } else { %>Inserted<% } %> 1 Book!',
             'success'
+          ).then((result) => {
+            if (result.value) {
+              location.reload()
+            }
+          })
+        },
+        error: function () {
+          Swal.fire(
+            'Unsuccessful',
+            'Book not <% if (res.locals.book) { %>Updated<% } else { %>Inserted<% } %>. Try again!',
+            'error'
           )
-        }
+        },
       })
     })
   });
