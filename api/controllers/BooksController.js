@@ -72,6 +72,37 @@ module.exports = {
   // },
 
   /**
+   * `BooksController.edit()`
+   */
+  edit: async function (req, res) {
+    let mongo_bookId = req.params.id
+    // console.log(mongo_bookId)
+    if (!mongo_bookId) {
+      return res.badRequest({
+        err: ('Invalid mongo_bookId')
+      })
+    }
+    const loadIt = async () => {
+      try {
+        // Fine the inventory id via book id
+        const findBook = await Books.findOne({
+            id: mongo_bookId
+          })
+          .populate('_Inventory')
+          .then(load => {
+            res.view("admin/newBooks", {
+              book: load
+            })
+          }).catch(err => res.serverError(err))
+      } catch (err) {
+        throw err
+      }
+    }
+    loadIt()
+      .catch(err => res.notFound(err))
+  },
+
+  /**
    * `BooksController.create()`
    */
   create: async function (req, res) {

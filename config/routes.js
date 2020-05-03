@@ -42,6 +42,7 @@ module.exports.routes = {
 
   'GET /Books': 'Books.books',
   'GET /Books/Entry': 'Books.entry',
+  'GET /Books/Edit/:id': 'Books.edit',
   'POST /Books/Create': 'Books.create',
   'DELETE /Books/Delete/:id': 'Books.delete',
   /*

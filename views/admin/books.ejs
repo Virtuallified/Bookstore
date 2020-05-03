@@ -46,7 +46,8 @@
                   <td>
                     <div class="btn-group">
                       <button type="button" class="btn btn-outline-primary"><i class="fas fa-eye"></i></button>
-                      <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
+                      <button type="button" class="btn btn-outline-success edit" value="<%= book.id%>"><i
+                          class="fas fa-pencil-alt"></i></button>
                       <button type="button" class="btn btn-outline-danger delete" value="<%= book.id%>"><i
                           class="fas fa-trash"></i></button>
                     </div>
@@ -81,6 +82,17 @@
       "autoWidth": false,
       "responsive": true,
     });
+    $('.edit').click(function () {
+      var id = $(this).val()
+      $.ajax({
+        method: 'GET',
+        url: '/Books/Edit/' + id,
+        success: function (result) {
+          // window.location.reload()
+          location.href = "/Books/Edit/" + id
+        }
+      })
+    });
     $('.delete').click(function () {
       // console.log($(this).val())
       $.ajax({
@@ -92,7 +104,6 @@
             'Deleted the Book!',
             'success'
           )
-          // console.log('Successfully Inserted')
         }
       })
     });
