@@ -311,6 +311,12 @@ module.exports = {
     }
     makeItDelete()
       .catch(err => res.notFound(err))
-  }
+  },
 
+  /**
+   * `BooksController.search()`
+   */
+  search: async function (req, res) {
+    res.view('admin/bookSearch')
+  },
 };

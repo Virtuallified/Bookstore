@@ -46,6 +46,7 @@ module.exports.routes = {
   'POST /Books/Create': 'Books.create',
   'PUT /Books/Update/:id': 'Books.update',
   'DELETE /Books/Delete/:id': 'Books.delete',
+  'GET /Books/Search': 'Books.search',
   /*
   'GET /Books/Show/:id': 'Books.onebook',
   'PUT /Books/:id': 'Books.update',
