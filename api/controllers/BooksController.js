@@ -207,57 +207,74 @@ module.exports = {
       .catch(err => res.end(err))
   },
 
-  // /**
-  //  * `BooksController.update()`
-  //  */
-  // update: async function (req, res) {
-  //   let mongo_bookId = req.params.id,
-  //     // Book Details Object
-  //     booksDetails = {},
+  /**
+   * `BooksController.update()`
+   */
+  update: async function (req, res) {
+    let mongo_bookId = req.params.id,
+      // Book Details Object
+      booksDetails = {},
+      genre = req.body.genre,
+      bookName = req.param('book_name'),
+      authorName = req.param('author_name'),
+      publisherName = req.param('publisher_name'),
+      isbn_10 = req.param('isbn10'),
+      isbn_13 = req.param('isbn13'),
+      price = req.param('price'),
+      type = req.param('type'),
+      language = req.param('lang'),
+      imgLink = req.param('img_link')
 
-  //     bookName = req.param('book_name'),
-  //     authorName = req.param('author_name'),
-  //     publisherName = req.param('publisher_name'),
-  //     isbn = req.param('isbn'),
-  //     price = req.param('price'),
-  //     bookImg = req.param('book_img')
-
-  //   if (bookName) {
-  //     booksDetails.Book = bookName;
-  //   }
-  //   if (authorName) {
-  //     booksDetails.Author = authorName;
-  //   }
-  //   if (publisherName) {
-  //     booksDetails.Publisher = publisherName;
-  //   }
-  //   if (isbn) {
-  //     booksDetails.ISBN = isbn;
-  //   }
-  //   if (price) {
-  //     booksDetails.Price = price;
-  //   }
-  //   if (bookImg) {
-  //     booksDetails.BookIMG = bookImg;
-  //   }
-  //   // console.log(booksDetails)
-  //   const makeRequest = async () => {
-  //     try {
-  //       const updateBooks = await Books.update({
-  //             id: mongo_bookId
-  //           },
-  //           booksDetails
-  //         )
-  //         .then(books => {
-  //           return res.ok(books)
-  //         })
-  //     } catch (err) {
-  //       throw err
-  //     }
-  //   }
-  //   makeRequest()
-  //     .catch(err => res.ok(err))
-  // },
+    if (genre) {
+      Array.isArray(genre)
+      booksDetails.genre = genre.toString();
+    }
+    if (type) {
+      Array.isArray(type)
+      booksDetails.type = type.toString();
+    }
+    if (bookName) {
+      booksDetails.book = bookName;
+    }
+    if (authorName) {
+      booksDetails.author = authorName;
+    }
+    if (publisherName) {
+      booksDetails.publisher = publisherName;
+    }
+    if (isbn_10) {
+      booksDetails.isbn_10 = isbn_10;
+    }
+    if (isbn_13) {
+      booksDetails.isbn_13 = isbn_13;
+    }
+    if (price) {
+      booksDetails.price = price;
+    }
+    if (imgLink) {
+      booksDetails.imgLink = imgLink;
+    }
+    if (language) {
+      booksDetails.language = language;
+    }
+    // console.log(booksDetails)
+    const makeUpdate = async () => {
+      try {
+        const updateBooks = await Books.update({
+              id: mongo_bookId
+            },
+            booksDetails
+          )
+          .then(books => {
+            return res.ok(books)
+          })
+      } catch (err) {
+        throw err
+      }
+    }
+    makeUpdate()
+      .catch(err => res.ok(err))
+  },
 
   /**
    * `BooksController.delete()`

@@ -121,8 +121,9 @@
             <div class="col-md-2"></div>
             <div class="col-md-2">
               <div class="form-group"><br>
-                <button id="submit" type="button" style="margin-top: 5%;" class="btn btn-primary btn-block">Keep
-                  It!</button>
+                <button id="submit" type="button" style="margin-top: 5%;"
+                  class="btn btn-primary btn-block"><% if (res.locals.book) { %>Update It!<% } else { %>Keep
+                  It!<% } %></button>
               </div>
             </div>
           </div>
@@ -184,13 +185,14 @@
       }
       // console.log(dataString)
       $.ajax({
-        method: 'POST',
-        url: '/Books/Create',
+        method: '<% if (res.locals.book) { %>PUT<% } else { %>POST<% } %>',
+        url: '<% if (res.locals.book) { %>/Books/Update/' + '<%= book.id %>' +
+          '<% } else { %>/Books/Create<% } %>',
         data: dataString,
         success: function (result) {
           Swal.fire(
             'Successfully',
-            'Inserted 1 Book!',
+            '<% if (res.locals.book) { %>Updated<% } else { %>Inserted<% } %> 1 Book!',
             'success'
           )
         }
