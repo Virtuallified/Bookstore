@@ -19,6 +19,7 @@
     "connect-mongo": "^2.0.3",
     "grunt": "1.0.4",
     "jquery": "^3.4.1",
+    "mongodb": "^3.5.7",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "sails": "^1.2.3",

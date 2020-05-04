@@ -19,6 +19,9 @@ module.exports = {
       req.login(user, function (err) {
         if (err) res.send(err);
         sails.log('User ' + user.id + ' has logged in.');
+        req.session.userId = user.id;
+        //res.send(req.session)
+        //console.log(user.id);
         return res.redirect('/Dashboard');
       })
     })(req, res);
