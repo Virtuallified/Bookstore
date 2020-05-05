@@ -40,12 +40,20 @@ module.exports.session = {
   /***************************************************************************   
    * MongoDB Login Session Handler                                            *
    ***************************************************************************/
-  adapter: 'connect-mongo',
   // Note: user, pass and port are optional
-  url: 'mongodb://localhost:27017/Bookstore',
-  collection: 'sessions',
-  auto_reconnect: false,
-  ssl: false,
-  stringify: true
+  // -----  LOCAL  -----
+  // adapter: 'connect-mongo',
+  // url: 'mongodb://localhost:27017/Bookstore',
+  // collection: 'sessions',
+  // auto_reconnect: false,
+  // ssl: false,
+  // stringify: true,
+  // -----  SERVER : [MongoDB Atlas] -----   // Problem establishing with ReplicaSet with Connect-Mongo Driver, If you can, please do it and let me know.
+  // adapter: 'connect-mongo',
+  // url: 'mongodb://cluster-projects-shard-00-00-dnb3s.mongodb.net:27017,cluster-projects-shard-00-01-dnb3s.mongodb.net:27017,cluster-projects-shard-00-02-dnb3s.mongodb.net:27017/Bookstore',
+  // collection: 'sessions',
+  // auto_reconnect: false,
+  // ssl: true,
+  // stringify: true,
 
 };
