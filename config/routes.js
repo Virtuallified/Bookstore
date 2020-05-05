@@ -39,13 +39,21 @@ module.exports.routes = {
   'POST /Login': 'Auth.login',
   'POST /Register': 'Auth.register',
   'GET /Dashboard': 'admin/Dashboard.index',
+
   'GET /Profile': 'admin/Dashboard.profile',
   'GET /updateProfile': 'admin/Dashboard.editprofile',
   'POST /update': 'admin/Dashboard.update',
-  /*
-  'GET /Books': 'Books.allbooks',
-  'GET /Books/Show/:id': 'Books.onebook',
+
+  'GET /Books': 'Books.books',
+  'GET /Books/Entry': 'Books.entry',
+  'GET /Books/Edit/:id': 'Books.edit',
   'POST /Books/Create': 'Books.create',
+  'PUT /Books/Update/:id': 'Books.update',
+  'DELETE /Books/Delete/:id': 'Books.delete',
+  'GET /Books/Search': 'Books.search',
+
+  /*
+  'GET /Books/Show/:id': 'Books.onebook',
   'PUT /Books/:id': 'Books.update',
   'DELETE /Books/:id': 'Books.delete',
   'POST /': 'Books.edit'
