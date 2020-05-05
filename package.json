@@ -19,6 +19,7 @@
     "connect-mongo": "^2.0.3",
     "grunt": "1.0.4",
     "jquery": "^3.4.1",
+    "mongodb": "^3.5.7",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "sails": "^1.2.3",
@@ -44,7 +45,7 @@
     "type": "git",
     "url": "https://github.com/Virtuallified/Bookstore.git"
   },
-  "author": "Subh_ || Arnss",
+  "author": "Subh_ || Arnss_",
   "license": "MIT",
   "engines": {
     "node": "^12.13"
