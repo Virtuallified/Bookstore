@@ -26,7 +26,8 @@
 // > Note: This is not required in order to lift, but it is a convenient default.
 process.chdir(__dirname);
 
-
+// loading environment variables
+var dotenv;
 
 // Attempt to import `sails` dependency, as well as `rc` (for loading `.sailsrc` files).
 var sails;
@@ -34,6 +35,7 @@ var rc;
 try {
   sails = require('sails');
   rc = require('sails/accessible/rc');
+  dotenv = require('dotenv').config();
 } catch (err) {
   console.error('Encountered an error when attempting to require(\'sails\'):');
   console.error(err.stack);
@@ -47,7 +49,7 @@ try {
   console.error('not run this file (`app.js`), but it will do exactly the same thing.');
   console.error('(It even uses your app directory\'s local Sails install, if possible.)');
   return;
-}//-•
+} //-•
 
 
 // Start server

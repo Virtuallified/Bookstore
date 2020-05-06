@@ -28,6 +28,7 @@ module.exports = {
   },
   //Logout function
   logout: function (req, res) {
+    sails.log('User ' + req.session.userId + ' has logged out.');
     req.logout();
     res.redirect('/Login');
   },

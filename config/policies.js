@@ -23,12 +23,16 @@ module.exports.policies = {
   //   '*': true
   // }
 
-  '*': true,
-  'admin/Dashboard': {
-    '*': 'Authentication',
-  },
+  // '*': true,
+  'Home/*': 'isAllowedHost',
   'Auth': {
-    '*': true
+    '*': true, // 'Flash'
+  },
+  'admin/Dashboard': {
+    '*': 'Authentication'
+  },
+  'Books': {
+    '*': 'Authentication'
   }
 
 };
