@@ -27,7 +27,6 @@ module.exports = {
               throw new Error('No Books Found')
             }
             // return res.ok(books)
-            console.log(req.session)
             return res.view('admin/books', {
               books: books
             })

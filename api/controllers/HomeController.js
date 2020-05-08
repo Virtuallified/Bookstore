@@ -10,5 +10,6 @@ module.exports = {
     res.view('pages/home', {
       layout: 'layouts/layout-public'
     })
+    // console.log(req.session)
   }
 };

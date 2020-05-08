@@ -31,6 +31,7 @@ module.exports = {
   logout: function (req, res) {
     sails.log('User ' + req.session.user.id + ' has logged out.');
     req.logout();
+    req.session.destroy()
     res.redirect('/Login');
   },
   //Register function
@@ -49,6 +50,7 @@ module.exports = {
       //TODO: Maybe send confirmation email to the user before login
       req.login(user, function (err) {
         if (err) return res.negotiate(err);
+        sails.helpers.sessionHelper(user, req.session)
         sails.log('User ' + user.id + ' has signed in.');
         return res.redirect('/Dashboard');
       })

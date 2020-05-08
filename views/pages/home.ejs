@@ -10,19 +10,33 @@
       <li class="nav-item active">
         <a class="nav-link" href="/">Bookstore<span class="sr-only">(current)</span></a>
       </li>
+      <% if (req.session.authenticated) { %>
+      <li class="nav-item">
+        <a class="nav-link" href="/Dashboard">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Books">Books</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Inventory</a>
+      </li>
+      <% } else { %>
       <li class="nav-item">
         <a class="nav-link" href="/Login">Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/Register">Register</a>
       </li>
+      <% } %>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">Do Something</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="/Books">All Books</a>
-          <a class="dropdown-item" href="#">Update</a>
-          <a class="dropdown-item" href="#">Delete</a>
+        <a class="nav-link dropdown-toggle" href="#" id="more" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">More</a>
+        <div class="dropdown-menu" aria-labelledby="more">
+          <a class="dropdown-item" href="#">Public Books</a>
+          <a class="dropdown-item" href="#">Request Books</a>
         </div>
       </li>
     </ul>
@@ -31,7 +45,40 @@
       <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
+
+  <% if (req.session.authenticated) { %>
+  <!-- Right navbar links -->
+  <ul class="navbar-nav ml-auto">
+    <!-- Notifications Dropdown Menu -->
+    <li class="nav-item dropdown">
+      <a class="nav-link" data-toggle="dropdown" href="#">
+        <i class="far fa-bell"></i>
+        <span class="badge badge-warning navbar-badge">15</span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <span class="dropdown-item dropdown-header">15 Notifications</span>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item">
+          <i class="fas fa-envelope mr-2"></i> 4 new messages
+          <span class="float-right text-muted text-sm">3 mins</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+      </div>
+    </li>
+    <!-- Logout from system -->
+    <li class="nav-item dropdown">
+      <a class="nav-link" data-toggle="dropdown" href="#">
+        <i class="fa fa-power-off" style="color:red;"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+        <a href="/logout" class="dropdown-item">Logout</a>
+      </div>
+    </li>
+  </ul>
+  <% } %>
 </nav>
+<!-- /.navbar -->
 
 <main role="main">
 
