@@ -78,6 +78,12 @@ module.exports = function (grunt) {
           cwd: './node_modules',
           src: ['@fortawesome/fontawesome-free/js/all.min.js'],
           dest: '.tmp/public/js/_2'
+        },
+        {
+          expand: true,
+          cwd: './node_modules',
+          src: ['moment/min/moment.min.js'],
+          dest: '.tmp/public/js/_2'
         }
       ]
     },

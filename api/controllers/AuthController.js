@@ -19,16 +19,17 @@ module.exports = {
       req.login(user, function (err) {
         if (err) res.send(err);
         sails.log('User ' + user.id + ' has logged in.');
-        req.session.userId = user.id;
-        //res.send(req.session)
-        //console.log(user.id);
+        sails.helpers.sessionHelper(user, req.session)
+        // res.send(req.session)
+        // console.log(req.session)
         return res.redirect('/Dashboard');
       })
+
     })(req, res);
   },
   //Logout function
   logout: function (req, res) {
-    sails.log('User ' + req.session.userId + ' has logged out.');
+    sails.log('User ' + req.session.user.id + ' has logged out.');
     req.logout();
     res.redirect('/Login');
   },
