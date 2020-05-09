@@ -197,8 +197,6 @@ module.exports = {
         // console.log('Problem is :', err);
         if (err.code = "E_UNIQUE") {
           res.status(403).send("ISBN already exists in Bookstore")
-        } else {
-          throw err;
         }
       }
     }

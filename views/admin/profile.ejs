@@ -1,122 +1,185 @@
 <div class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
-      <!-- Header -->
-      <% include ./partials/header %>
-      <!-- ./Header -->
-      <!-- Main Sidebar Container -->
-      <% include ./partials/sidebar %>
-      <!-- ./Main Sidebar Container -->
-      <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
-        <!-- Breadcrumb -->
-        
-        <section class="content-header">
-            <div class="container-fluid">
-              <div class="row mb-2">
-                <div class="col-sm-6">
-                  <h1>Profile</h1>
-                </div>
-                <div class="col-sm-6">
-                  <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">User Profile</li>
-                  </ol>
-                </div>
-              </div>
-            </div><!-- /.container-fluid -->
-          </section>
-        <!-- ./Breadcrumb -->
-  
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-6">
-      
-                  <!-- Profile Image -->
-                  <div class="card card-primary card-outline">
-                    <div class="card-body box-profile">
-                      <div class="text-center">
-                        <img class="profile-user-img img-fluid img-circle"
-                             src="/images/avatar5.png"
-                             alt="User profile picture">
-                      </div>
-                       
-                      <h3 class="profile-username text-center"><%= user.username %></h3>
-      
-                      <p class="text-muted text-center">Software Engineer</p>
-      
-                      <ul class="list-group list-group-unbordered mb-3">
-                        <li class="list-group-item">
-                          <b>Email</b> <a class="float-right"><%= user.email %></a>
-                        </li>
-                        <li class="list-group-item">
-                          <b>Role</b> <a class="float-right"><%= user.role %></a>
-                        </li>
-                        
-                      </ul>
-      
-                      <a href="/updateProfile" class="btn btn-primary btn-block"><b>Update </b></a>
-                      
-                    </div>
-                    <!-- /.card-body -->
+  <div class="wrapper">
+    <!-- Header -->
+    <% include ./partials/header %>
+    <!-- ./Header -->
+    <!-- Main Sidebar Container -->
+    <% include ./partials/sidebar %>
+    <!-- ./Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Breadcrumb -->
+      <% include ./partials/breadcrumb %>
+      <!-- ./Breadcrumb -->
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6 ">
+
+              <!-- Profile Image -->
+              <div class="card card-primary card-outline shadow-lg p-3 mb-0 bg-white rounded">
+                <div class="card-body box-profile">
+                  <div class="text-center">
+                    <img class="profile-user-img img-fluid img-circle" src="/images/avatar5.png"
+                      alt="User profile picture">
                   </div>
-                  <!-- /.card -->
-                </div>
-                <div class="col-md-6">
-                  <!-- About Me Box -->
-                  <div class="card card-primary">
-                    <div class="card-header">
-                      <h3 class="card-title">About Me</h3>
+                  <h3 class="profile-username text-center">
+                    @<% if (res.locals.uDetails) { %><%= uDetails.username %><% } %></h3>
+                  <span class="details">
+                    <p class="text-muted text-center">
+                      <% if (res.locals.uDetails) { %><%= uDetails.role %><% } %></p>
+                  </span>
+                  <div class="row d-flex justify-content-center">
+                    <div class="form-group newChange" style="width: 35%;">
+                      <select class="form-control" name="role">
+                        <option value="">Change Role</option>
+                        <option>Author</option>
+                        <option>Reader</option>
+                      </select>
                     </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                      <strong><i class="fas fa-book mr-1"></i> Education</strong>
-      
-                      <p class="text-muted">
-                        B.S. in Computer Science from the University of Tennessee at Knoxville
-                      </p>
-      
-                      <hr>
-      
-                      <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-      
-                      <p class="text-muted">Malibu, California</p>
-      
-                      <hr>
-      
-                      <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-      
-                      <p class="text-muted">
-                        <span class="tag tag-danger">UI Design</span>
-                        <span class="tag tag-success">Coding</span>
-                        <span class="tag tag-info">Javascript</span>
-                        <span class="tag tag-warning">PHP</span>
-                        <span class="tag tag-primary">Node.js</span>
-                      </p>
-      
-                      <hr>
-      
-                      <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-      
-                      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-                    </div>
-                    <!-- /.card-body -->
                   </div>
-                  <!-- /.card -->
+                  <ul class="list-group list-group-unbordered mb-3">
+                    <li class="list-group-item">
+                      <span class="details"><b>Email</b> <a
+                          class="float-right"><% if (res.locals.uDetails) { %><%= uDetails.email %><% } %></a></span>
+                      <input class="form-control newChange" name="email" placeholder="Enter New Email"
+                        value="<% if (res.locals.uDetails) { %><%= uDetails.email %><% } %>">
+                    </li>
+                    <li class="list-group-item ">
+                      <span class="details"><b>Password</b> <a class="float-right">*****</a></span>
+                      <input class="form-control newChange" name="password" placeholder="Enter New Password" value="">
+                    </li>
+                  </ul>
+                  <div class="row d-flex justify-content-center">
+                    <button id="edit" type="button" class="btn btn-primary edit">Change It!</button>
+                    <div class="btn-group newChange">
+                      <button id="update" type="button" class="btn btn-primary update">Update It!</button>
+                      <button id="cancel" type="button" class="btn btn-secondary cancel"><i
+                          class="fas fa-window-close"></i></button>
+                    </div>
+                  </div>
                 </div>
-               
-                <!-- /.col -->
+                <!-- /.card-body -->
               </div>
-              <!-- /.row -->
-            </div><!-- /.container-fluid -->
-          </section>
-        <!-- /.content -->
-      </div>
-      <!-- /.content-wrapper -->
-      <% include ./partials/footer %>
-  
+              <!-- /.card -->
+            </div>
+            <div class="col-md-6">
+              <!-- About Me Box -->
+              <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">About Me</h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool"><i class="fas fa-user-edit"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                        class="fas fa-minus"></i></button>
+                  </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <strong><i class="far fa-address-card mr-1"></i>Name : </strong>
+                  <span class="text-muted">
+                    <% if (res.locals.uDetails) { %><%= uDetails._ProfileID.firstname %>
+                    <%= uDetails._ProfileID.lastname %><% } %>
+                  </span>
+                  <br>
+                  <strong><i class="fas fa-venus-mars"></i> Gender : </strong>
+                  <span class="text-muted"> <% if (res.locals.uDetails) { %><%= uDetails._ProfileID.gender %><% } %>
+                  </span>
+                  <br>
+                  <strong><i class="fas fa-phone-alt"></i> Phone : </strong>
+                  <span class="text-muted"> <% if (res.locals.uDetails) { %><%= uDetails._ProfileID.phone %><% } %>
+                  </span>
+                  <hr>
+                  <strong><i class="fas fa-building mr-1"></i> Address : </strong>
+                  <span class="text-muted"> <% if (res.locals.uDetails) { %>
+                    <%= uDetails._ProfileID.road_address %>,
+                    <%= uDetails._ProfileID.city %>, <%= uDetails._ProfileID.state %>,
+                    <%= uDetails._ProfileID.postal_code %>,
+                    <%= uDetails._ProfileID.country %><% } %>
+                  </span>
+                  <br>
+                  <strong><i class="fas fa-map-marker-alt mr-1"></i> Location : </strong>
+                  <span class="text-muted"><% if (res.locals.uDetails) { %><%= uDetails._ProfileID.latitude %><% } %>,
+                    <% if (res.locals.uDetails) { %><%= uDetails._ProfileID.longitude %><% } %></span>
+                  <hr>
+                  <strong><i class="fas fa-mail-bulk mr-1"></i> Company : </strong>
+                  <span class="text-muted"> <% if (res.locals.uDetails) { %><%= uDetails._ProfileID.company %><% } %>
+                  </span>
+                  <br>
+                  <strong><i class="fas fa-star-half-alt mr-1"></i> Stars : </strong>
+                  <span class="text-muted"> <% if (res.locals.uDetails) { %><%= uDetails._ProfileID.stars %><% } %>
+                  </span>
+                  <hr>
+                  <strong><i class="fas fa-wifi mr-1"></i> IP Address : </strong>
+                  <span class="text-muted"> <% if (res.locals.uDetails) { %><%= uDetails._ProfileID.ip_address %><% } %>
+                  </span>
+                  <br>
+                  <strong><i class="fas fa-laptop mr-1"></i> System : </strong>
+                  <span class="text-muted"> <% if (res.locals.uDetails) { %><%= uDetails._ProfileID.system %><% } %>
+                  </span>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
     </div>
-    <!-- ./wrapper -->
+    <!-- /.content-wrapper -->
+    <% include ./partials/footer %>
+
   </div>
-  
+  <!-- ./wrapper -->
+</div>
+<%- exposeLocalsToBrowser() %>
+<script>
+  $(function () {
+    // MULTIPLE SELETE TOKENIZER
+    // $('.js-example-tags').select2({
+    //   placeholder: "Select Role"
+    // });
+    // HIDE ALL INPUT SPACES
+    $('.newChange').hide()
+    // MAKE IT EDITABLE
+    $('.edit').click(function () {
+      $('.details').hide();
+      $('.newChange').show()
+      $('.edit').hide()
+      $('.update').show()
+    })
+    // CANCEL CHANGES
+    $('.cancel').click(function () {
+      $('.details').show();
+      $('.newChange').hide()
+      $('.update').hide()
+      $('.edit').show()
+    })
+    $('.update').click(function () {
+      // Send a POST request
+      var dataString = {
+        email: $("input[name='email']").val(),
+        password: $("input[name='password']").val(),
+        role: $("select[name='role']").val(),
+        _csrf: window.SAILS_LOCALS._csrf,
+      }
+      $.ajax({
+        method: 'PUT',
+        url: '/Profile/Update/' + '<% if (res.locals.uDetails) { %><%= uDetails.id %><% } %>',
+        data: dataString,
+        success: function () {
+          console.log('success')
+        },
+        error: function () {
+
+        }
+      })
+    })
+  })
+
+</script>

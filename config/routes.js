@@ -35,15 +35,15 @@ module.exports.routes = {
   'GET /Register': {
     view: 'pages/register'
   },
+  // LOGIN
   'GET /Logout': 'Auth.logout',
   'POST /Login': 'Auth.login',
   'POST /Register': 'Auth.register',
   'GET /Dashboard': 'admin/Dashboard.index',
-
-  'GET /Profile': 'admin/Dashboard.profile',
-  'GET /updateProfile': 'admin/Dashboard.editprofile',
-  'POST /update': 'admin/Dashboard.update',
-
+  // USERS
+  'GET /Profile': 'User.profile',
+  'PUT /Profile/Update/:id': 'User.update',
+  // BOOKS
   'GET /Books': 'Books.books',
   'GET /Books/Entry': 'Books.entry',
   'GET /Books/Edit/:id': 'Books.edit',
@@ -52,12 +52,6 @@ module.exports.routes = {
   'DELETE /Books/Delete/:id': 'Books.delete',
   'GET /Books/Search': 'Books.search',
 
-  /*
-  'GET /Books/Show/:id': 'Books.onebook',
-  'PUT /Books/:id': 'Books.update',
-  'DELETE /Books/:id': 'Books.delete',
-  'POST /': 'Books.edit'
-  */
 
   /***************************************************************************
    *                                                                          *
