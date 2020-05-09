@@ -8,16 +8,14 @@
 const bcrypt = require('bcrypt-nodejs');
 module.exports = {
   attributes: {
-    // id: {
-    //   type: 'string',
-    //   columnName: '_id'
-    // },
     username: {
       type: 'string',
+      unique: true,
       required: true
     },
     email: {
       type: 'string',
+      unique: true,
       required: true
     },
     password: {
@@ -32,8 +30,11 @@ module.exports = {
       type: 'string',
       required: true
     },
-    profile_id: {
-      type: 'string'
+    _ProfileID: {
+      model: 'Profile',
+      columnName: 'profile_id',
+      unique: true,
+      required: true,
     }
   },
   customToJSON: function () {

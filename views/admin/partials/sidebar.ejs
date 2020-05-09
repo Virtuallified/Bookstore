@@ -13,7 +13,8 @@
             <img src="/images/avatar5.png" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">@username</a>
+            <a href="/Profile"
+              class="d-block">@<% if (req.session.authenticated) { %><%= req.session.user.username%><% } %></a>
           </div>
         </div>
 
@@ -42,7 +43,7 @@
               </a>
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
-                  <a href="/profile" class="nav-link ">
+                  <a href="/Profile" class="nav-link ">
                     <!--active-->
                     <i class="far fa-circle nav-icon"></i>
                     <p>Profile</p>

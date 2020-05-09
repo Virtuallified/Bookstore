@@ -66,6 +66,7 @@
             </div>
             <!-- /.col -->
             <div class="col-4">
+              <input type="hidden" name="_csrf" value="<%= _csrf %>" />
               <button type="submit" class="btn btn-primary btn-block">Register</button>
             </div>
             <!-- /.col -->
@@ -85,6 +86,17 @@
         </div-->
 
         <a href="/login" class="text-center">I already have a membership</a>
+        <!-- flash message -->
+        <% if(res.locals.flash && res.locals.flash.err) { %>
+        <br><br>
+        <div class="alert alert-secondary alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <% Object.keys(flash.err).forEach(function(error) {%>
+          <% JSON.stringify(flash.err[error]) %>
+          <% }) %>
+        </div>
+        <% } %>
+        <!-- /.flash message -->
       </div>
       <!-- /.form-box -->
     </div><!-- /.card -->

@@ -197,8 +197,6 @@ module.exports = {
         // console.log('Problem is :', err);
         if (err.code = "E_UNIQUE") {
           res.status(403).send("ISBN already exists in Bookstore")
-        } else {
-          throw err;
         }
       }
     }
@@ -266,6 +264,7 @@ module.exports = {
             booksDetails
           )
           .then(books => {
+            sails.log('book_id is : ' + books.id + ' : updated')
             return res.ok(books)
           })
       } catch (err) {
@@ -303,6 +302,7 @@ module.exports = {
         const deleteInventory = await Inventory.destroy({
           id: findBook._Inventory.id
         }).then(inventory => {
+          sails.log('book_id is : ' + mongo_bookId + ' : deleted')
           res.ok(`Successfully deleted data with Book ID : ${mongo_bookId} & Inventory ID : ${findBook._Inventory.id}`)
         }).catch(err => res.serverError(err))
       } catch (err) {

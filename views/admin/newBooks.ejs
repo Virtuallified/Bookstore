@@ -139,7 +139,7 @@
   </div>
   <!-- ./wrapper -->
 </div>
-
+<%- exposeLocalsToBrowser() %>
 <script>
   $(document).ready(function () {
     // BOOK DATA FOR UPDATE
@@ -182,6 +182,7 @@
         genre: $("select[name='genre']").val(),
         type: $("select[name='type']").val(),
         lang: $("input[name='lang']").val(),
+        _csrf: window.SAILS_LOCALS._csrf,
       }
       // console.log(dataString)
       $.ajax({

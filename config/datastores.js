@@ -63,9 +63,9 @@ module.exports.datastores = {
     // url: 'mongodb://localhost:27017/Bookstore',
     // -----  SERVER : [MongoDB Atlas] -----
     adapter: 'sails-mongo',
-    url: 'mongodb://dbRunner:4iCV727zVhra3Rri@cluster-projects-shard-00-00-dnb3s.mongodb.net:27017,cluster-projects-shard-00-01-dnb3s.mongodb.net:27017,cluster-projects-shard-00-02-dnb3s.mongodb.net:27017/Bookstore',
+    url: process.env.DB_URL,
     ssl: true,
-    replicaSet: 'Cluster-Projects-shard-0',
+    replicaSet: process.env.CLUSTER,
     authSource: 'admin',
   },
 

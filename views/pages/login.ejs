@@ -38,6 +38,7 @@
             </div>
             <!-- /.col -->
             <div class="col-4">
+              <input type="hidden" name="_csrf" value="<%= _csrf %>" />
               <button type="submit" class="btn btn-primary btn-block">Sign In</button>
             </div>
             <!-- /.col -->
@@ -61,6 +62,17 @@
         <p class="mb-0">
           <a href="/register" class="text-center">Register a new membership</a>
         </p>
+        <!-- flash message -->
+        <% if(res.locals.flash && res.locals.flash.err) { %>
+        <br>
+        <div class="alert alert-secondary alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <% Object.keys(flash.err).forEach(function(error) {%>
+          <% JSON.stringify(flash.err[error]) %>
+          <% }) %>
+        </div>
+        <% } %>
+        <!-- /.flash message -->
       </div>
       <!-- /.login-card-body -->
     </div>

@@ -1,38 +1,8 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <img class="navbar-brand" src="/images/books-logo.png" alt="Bookstore" width="40" height="50">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<!-- Header -->
+<% include ./partials/header %>
+<!-- ./Header -->
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Bookstore<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/Login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/Register">Register</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">Do Something</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="/Books">All Books</a>
-          <a class="dropdown-item" href="#">Update</a>
-          <a class="dropdown-item" href="#">Delete</a>
-        </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search Books" aria-label="Search">
-      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-
+<!-- Main content -->
 <main role="main">
 
   <!-- Content Wrapper. Contains page content -->
@@ -134,19 +104,8 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
 </main>
-
-<footer class="main-footer" style="margin-left: 0; bottom: 0; width: 100%; background-color: #f5f5f5;">
-  <span class="text-muted"></span>&copy; <strong>Bookstore App.</strong> 2020 All rights reserved. Built for
-  educational purpose.</span>
-  <div class="float-right d-none d-sm-inline-block">
-    <b>Version</b> 1.0.5
-  </div>
-</footer>
-
-<script>
-  $(function () {
-
-  })
-
-</script>
+<!-- /.content -->
+<!-- /.content-wrapper -->
+<% include ./partials/footer %>

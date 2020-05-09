@@ -71,6 +71,7 @@
   </div>
   <!-- ./wrapper -->
 </div>
+<%- exposeLocalsToBrowser() %>
 <script>
   $(function () {
     $('#bookTable').DataTable({
@@ -107,6 +108,9 @@
         if (result.value) {
           $.ajax({
             method: 'DELETE',
+            data: dataString = {
+              _csrf: window.SAILS_LOCALS._csrf
+            },
             url: '/Books/Delete/' + $(this).val(),
             success: function (response) {
               Swal.fire(
