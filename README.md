@@ -1,6 +1,6 @@
 # Bookstore APP ## v.1.0.5
 
-![Github | Heroku CI/CD Setup](https://github.com/Virtuallified/Bookstore/workflows/Github%20%7C%20Heroku%20CI/CD%20Setup/badge.svg?event=pull_request)
+![Bookstore CI/CD](https://github.com/Virtuallified/Bookstore/workflows/Bookstore%20CI/CD/badge.svg?event=pull_request)
 
 This project is about book keeping and managing it in a well manner.
 <br>Language : Node.js
