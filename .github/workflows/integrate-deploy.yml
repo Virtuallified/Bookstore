@@ -6,17 +6,13 @@ name: Bookstore CI/CD
 
 on:
   push:
-    branches: 
-      only:
-        - master
+    branches: [ master ]
   pull_request:
-    branches: 
-      only:
-        - master
+    branches: [ master ]
 
 jobs:
   test:
-    name: Running Test Units
+    name: Running Unit Tests
     runs-on: ubuntu-latest
 
     strategy:
@@ -33,7 +29,8 @@ jobs:
       run: |
         npm ci
         npm run build --if-present
-        npm test
+    - name: Running Unit Tests
+      run: npm test
 
   # deploy:
   #   needs: [test]
