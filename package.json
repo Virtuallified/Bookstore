@@ -1,7 +1,7 @@
 {
   "name": "bookstore",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "This project is about book keeping and managing it in a well manner.",
   "keywords": [
     "Books",
@@ -33,20 +33,25 @@
   },
   "devDependencies": {
     "eslint": "5.16.0",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
   },
   "scripts": {
     "start": "NODE_ENV=production node app.js",
-    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
-    "lint": "./node_modules/eslint/bin/eslint.js . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
-    "custom-tests": "echo \"(No other custom tests yet.)\" && echo"
+    "test": ""
   },
   "main": "app.js",
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/tools/jest.js",
+    "testMatch": [
+      "<rootDir>/tests/**/*.test.js"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Virtuallified/Bookstore.git"
   },
-  "author": "Subh_ || Arnss_",
+  "author": "Subh_",
   "license": "MIT",
   "engines": {
     "node": "^12.13"
