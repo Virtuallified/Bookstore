@@ -224,8 +224,8 @@ module.exports = {
      *                                                                          *
      ***************************************************************************/
     cookie: {
-      // secure: true,
-      maxAge: 24 * 60 * 60 * 1000, // 24 hours
+      secure: true,
+      maxAge: 60 * 60 * 1000, // 1 hour    // For * 24 hours
     },
 
   },
@@ -253,10 +253,10 @@ module.exports = {
      * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
      *                                                                          *
      ***************************************************************************/
-    // onlyAllowOrigins: [
-    //   'https://example.com',
-    //   'https://staging.example.com',
-    // ],
+    onlyAllowOrigins: [
+      'https://bookstores-app.herokuapp.com',
+      // 'https://staging.example.com',
+    ],
 
 
     /***************************************************************************
@@ -325,7 +325,7 @@ module.exports = {
      * (https://sailsjs.com/config/http)                                        *
      *                                                                          *
      ***************************************************************************/
-    // trustProxy: true,
+    trustProxy: true,
 
   },
 
@@ -374,8 +374,8 @@ module.exports = {
    *                                                                         *
    ***************************************************************************/
   custom: {
-    baseUrl: 'https://example.com',
-    internalEmailAddress: 'support@example.com',
+    baseUrl: 'https://bookstores-app.herokuapp.com',
+    internalEmailAddress: 'notmadetillnow@bookstore.com',
 
     // mailgunDomain: 'mg.example.com',
     // mailgunSecret: 'key-prod_fake_bd32301385130a0bafe030c',
