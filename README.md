@@ -18,8 +18,9 @@ npm install
 ```
 
 ### 2. To run the app
+Dont use _sails lift_, because the app is going to crash for not founding the environment variables set by .dotenv package.
 ```
-sails lift  ||  node app.js
+node app.js
 ```
 
 ### 3. To test unit cases
