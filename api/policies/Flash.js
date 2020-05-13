@@ -1,3 +1,6 @@
+/* ************************************************ 
+ * Policy for showing flash message from session  *
+ * ************************************************ */
 module.exports = (req, res, next) => {
   res.locals.flash = {};
   if (req.session.flash) return next();
