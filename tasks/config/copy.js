@@ -34,19 +34,19 @@ module.exports = function (grunt) {
         {
           expand: true,
           cwd: './node_modules',
-          src: ['bootstrap/dist/js/bootstrap.bundle.min.js'],
-          dest: '.tmp/public/js/_2'
-        },
-        {
-          expand: true,
-          cwd: './node_modules',
           src: ['jquery/dist/jquery.min.js'],
           dest: '.tmp/public/js/_1'
         },
         {
           expand: true,
           cwd: './node_modules',
-          src: ['select2/dist/js/select2.min.js'],
+          src: ['bootstrap/dist/js/bootstrap.bundle.min.js'],
+          dest: '.tmp/public/js/_2'
+        },
+        {
+          expand: true,
+          cwd: './node_modules',
+          src: ['select2/dist/js/select2.full.min.js'],
           dest: '.tmp/public/js/_3'
         },
         {
