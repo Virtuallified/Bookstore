@@ -22,13 +22,13 @@ module.exports = function (grunt) {
         // {
         //   expand: true,
         //   cwd: './node_modules',
-        //   src: ['bootstrap/dist/css/bootstrap.min.css'],
+        //   src: ['bootstrap/dist/css/bootstrap.css'],
         //   dest: '.tmp/public/styles'
         // },
         // {
         //   expand: true,
         //   cwd: './node_modules',
-        //   src: ['bootstrap/dist/js/bootstrap.min.js'],
+        //   src: ['bootstrap/dist/js/bootstrap.js'],
         //   dest: '.tmp/public/js'
         // },
         {
@@ -40,49 +40,49 @@ module.exports = function (grunt) {
         {
           expand: true,
           cwd: './node_modules',
-          src: ['bootstrap/dist/js/bootstrap.bundle.min.js'],
+          src: ['bootstrap/dist/js/bootstrap.bundle.js'],
           dest: '.tmp/public/js'
         },
         {
           expand: true,
           cwd: './node_modules',
-          src: ['select2/dist/js/select2.full.min.js'],
+          src: ['select2/dist/js/select2.full.js'],
           dest: '.tmp/public/js'
         },
         {
           expand: true,
           cwd: './node_modules',
-          src: ['select2/dist/css/select2.min.css'],
+          src: ['select2/dist/css/select2.css'],
           dest: '.tmp/public/styles'
         },
         {
           expand: true,
           cwd: './node_modules',
-          src: ['axios/dist/axios.min.js'],
+          src: ['axios/dist/axios.js'],
           dest: '.tmp/public/js'
         },
         {
           expand: true,
           cwd: './node_modules',
-          src: ['sweetalert2/dist/sweetalert2.min.js'],
+          src: ['sweetalert2/dist/sweetalert2.js'],
           dest: '.tmp/public/js'
         },
         {
           expand: true,
           cwd: './node_modules',
-          src: ['sweetalert2/dist/sweetalert2.min.css'],
+          src: ['sweetalert2/dist/sweetalert2.css'],
           dest: '.tmp/public/styles'
         },
         {
           expand: true,
           cwd: './node_modules',
-          src: ['@fortawesome/fontawesome-free/js/all.min.js'],
+          src: ['@fortawesome/fontawesome-free/js/all.js'],
           dest: '.tmp/public/js'
         },
         {
           expand: true,
           cwd: './node_modules',
-          src: ['moment/min/moment.min.js'],
+          src: ['moment/moment.js'],
           dest: '.tmp/public/js'
         }
       ]

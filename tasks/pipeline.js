@@ -39,18 +39,19 @@ var cssFilesToInject = [
   // All of the rest of your custom `.css` files will be injected here,
   // in no particular order.  To customize the ordering, add additional
   // items here, _above_ this one.
+
   // 'styles/**/*.css'   // To add all CSS files unorderedly
   // To ordering for minification 
   'styles/importer.css',
-  'styles/adminlte3/adminlte.min.css',
-  'styles/datatables-responsive/responsive.bootstrap4.min.css',
-  'styles/datatables-bs4/dataTables.bootstrap4.min.css',
-  'styles/select2/dist/css/select2.min.css',
-  'styles/sweetalert2/dist/sweetalert2.min.css',
+  'styles/adminlte3/adminlte.css',
+  'styles/datatables-responsive/responsive.bootstrap4.css',
+  'styles/datatables-bs4/dataTables.bootstrap4.css',
+  'styles/select2/dist/css/select2.css',
+  'styles/sweetalert2/dist/sweetalert2.css',
   'styles/daterangepicker/daterangepicker.css',
-  'styles/icheck-bootstrap/icheck-bootstrap.min.css',
-  'styles/overlayScrollbars/OverlayScrollbars.min.css',
-  'styles/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css',
+  'styles/icheck-bootstrap/icheck-bootstrap.css',
+  'styles/overlayScrollbars/OverlayScrollbars.css',
+  'styles/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.css',
   'styles/custom.css'
 ];
 
@@ -84,25 +85,29 @@ var jsFilesToInject = [
   // All of the rest of your custom client-side js files will be injected here,
   // in no particular order.  To customize the ordering, add additional items
   // here, _above_ this one.
+
   // 'js/**/*.js' // To add all JS files unorderedly
   // To ordering for minification 
   'js/jquery/dist/jquery.min.js',
-  'js/jqueryui/jquery-ui.min.js',
-  'js/bootstrap/dist/js/bootstrap.bundle.min.js',
-  'js/@fortawesome/fontawesome-free/js/all.min.js',
-  'js/datatables-a/jquery.dataTables.min.js',
-  'js/datatables-bs4/dataTables.bootstrap4.min.js',
-  'js/datatables-responsive/dataTables.responsive.min.js',
-  'js/datatables-responsive/responsive.bootstrap4.min.js',
-  'js/axios/dist/axios.min.js',
-  'js/moment/min/moment.min.js',
-  'js/daterangepicker/daterangepicker.js',
-  'js/select2/dist/js/select2.full.min.js',
-  'js/sweetalert2/dist/sweetalert2.min.js',
-  'js/overlayScrollbars/jquery.overlayScrollbars.min.js',
-  'js/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js',
-  'js/adminlte3/adminlte.min.js',
-  'js/custom.js'
+  'js/jqueryui/jquery-ui.js',
+  'js/bootstrap/dist/js/bootstrap.bundle.js',
+  'js/@fortawesome/fontawesome-free/js/all.js',
+  'js/datatables/jquery.dataTables.js',
+  'js/datatables-bs4/dataTables.bootstrap4.js',
+  'js/datatables-responsive/dataTables.responsive.js',
+  'js/datatables-responsive/responsive.bootstrap4.js',
+  // 'js/axios/dist/axios.js', // Not working in Production
+  // 'js/moment/moment.js', // Not working in Production
+  // 'js/daterangepicker/daterangepicker.js', // Not working in Production
+  'js/select2/dist/js/select2.full.js',
+  'js/sweetalert2/dist/sweetalert2.js',
+  'js/overlayScrollbars/jquery.overlayScrollbars.js',
+  // 'js/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.js', // Not working in Production
+  'js/adminlte3/adminlte.js',
+  'js/script.js',
+
+  //Ignore local injected scripts
+  '!js/local/*.js'
 ];
 
 
