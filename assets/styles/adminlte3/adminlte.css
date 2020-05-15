@@ -18703,19 +18703,19 @@ html.maximized-card {
 }
 
 .callout.callout-danger {
-  border-left-color: #bd2130;
+  border-left-color: #ff0019;
 }
 
 .callout.callout-warning {
-  border-left-color: #d39e00;
+  border-left-color: #ffb93a;
 }
 
 .callout.callout-info {
-  border-left-color: #117a8b;
+  border-left-color: #00c4ff;
 }
 
 .callout.callout-success {
-  border-left-color: #1e7e34;
+  border-left-color: #00e935;
 }
 
 .alert .icon {
