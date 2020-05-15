@@ -11,19 +11,19 @@
   <%/* <meta name="robots" content="noindex"> */%>
 
   <!--STYLES-->
-  <link rel="stylesheet" href="/styles/adminlte3/adminlte.min.css">
-  <link rel="stylesheet" href="/styles/custom.css">
-  <link rel="stylesheet" href="/styles/datatables-bs4/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="/styles/datatables-responsive/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="/styles/daterangepicker/daterangepicker.css">
-  <link rel="stylesheet" href="/styles/icheck-bootstrap/icheck-bootstrap.min.css">
   <link rel="stylesheet" href="/styles/importer.css">
-  <link rel="stylesheet" href="/styles/overlayScrollbars/OverlayScrollbars.min.css">
-  <link rel="stylesheet" href="/styles/select2/dist/css/select2.min.css">
-  <link rel="stylesheet" href="/styles/sweetalert2/dist/sweetalert2.min.css">
-  <link rel="stylesheet" href="/styles/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="/styles/adminlte3/adminlte.css">
+  <link rel="stylesheet" href="/styles/datatables-responsive/responsive.bootstrap4.css">
+  <link rel="stylesheet" href="/styles/datatables-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="/styles/select2/dist/css/select2.css">
+  <link rel="stylesheet" href="/styles/sweetalert2/dist/sweetalert2.css">
+  <link rel="stylesheet" href="/styles/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="/styles/icheck-bootstrap/icheck-bootstrap.css">
+  <link rel="stylesheet" href="/styles/overlayScrollbars/OverlayScrollbars.css">
+  <link rel="stylesheet" href="/styles/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.css">
+  <link rel="stylesheet" href="/styles/custom.css">
   <!--STYLES END-->
-  <script src="/js/_1/jquery/dist/jquery.min.js"></script>
+  <script src="/js/jquery/dist/jquery.min.js"></script>
 </head>
 
 <body>
@@ -34,28 +34,23 @@
 
   <!--SCRIPTS-->
   <script src="/dependencies/sails.io.js"></script>
-  <script src="/js/_1/jquery/dist/jquery.min.js"></script>
-  <script src="/js/_1/jqueryui/jquery-ui.min.js"></script>
-  <script src="/js/_2/@fortawesome/fontawesome-free/js/all.min.js"></script>
-  <script src="/js/_2/axios/dist/axios.min.js"></script>
-  <script src="/js/_2/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/js/_2/datatables-a/jquery.dataTables.min.js"></script>
-  <script src="/js/_2/datatables-bs4/dataTables.bootstrap4.min.js"></script>
-  <script src="/js/_2/datatables-responsive/dataTables.responsive.min.js"></script>
-  <script src="/js/_2/datatables-responsive/responsive.bootstrap4.min.js"></script>
-  <script src="/js/_2/daterangepicker/daterangepicker.js"></script>
-  <script src="/js/_2/moment/min/moment.min.js"></script>
-  <script src="/js/_2/sweetalert2/dist/sweetalert2.min.js"></script>
-  <script src="/js/_3/adminlte3/adminlte.min.js"></script>
-  <script src="/js/_3/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
-  <script src="/js/_3/select2/dist/js/select2.min.js"></script>
-  <script src="/js/_3/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="/js/jquery/dist/jquery.min.js"></script>
+  <script src="/js/jqueryui/jquery-ui.js"></script>
+  <script src="/js/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script src="/js/@fortawesome/fontawesome-free/js/all.js"></script>
+  <script src="/js/datatables/jquery.dataTables.js"></script>
+  <script src="/js/datatables-bs4/dataTables.bootstrap4.js"></script>
+  <script src="/js/datatables-responsive/dataTables.responsive.js"></script>
+  <script src="/js/datatables-responsive/responsive.bootstrap4.js"></script>
+  <script src="/js/select2/dist/js/select2.full.js"></script>
+  <script src="/js/sweetalert2/dist/sweetalert2.js"></script>
+  <script src="/js/overlayScrollbars/jquery.overlayScrollbars.js"></script>
+  <script src="/js/adminlte3/adminlte.js"></script>
+  <script src="/js/script.js"></script>
   <!--SCRIPTS END-->
-  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-  <script>
-    $.widget.bridge('uibutton', $.ui.button)
-
-  </script>
+  <!-- PAGE SCRIPTS-->
+  <%- blocks.localScripts %>
+  <!-- PAGE SCRIPTS END-->
 </body>
 
 </html>
