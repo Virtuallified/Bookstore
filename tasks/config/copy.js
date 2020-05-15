@@ -35,19 +35,19 @@ module.exports = function (grunt) {
           expand: true,
           cwd: './node_modules',
           src: ['jquery/dist/jquery.min.js'],
-          dest: '.tmp/public/js/_1'
+          dest: '.tmp/public/js'
         },
         {
           expand: true,
           cwd: './node_modules',
           src: ['bootstrap/dist/js/bootstrap.bundle.min.js'],
-          dest: '.tmp/public/js/_2'
+          dest: '.tmp/public/js'
         },
         {
           expand: true,
           cwd: './node_modules',
           src: ['select2/dist/js/select2.full.min.js'],
-          dest: '.tmp/public/js/_3'
+          dest: '.tmp/public/js'
         },
         {
           expand: true,
@@ -59,13 +59,13 @@ module.exports = function (grunt) {
           expand: true,
           cwd: './node_modules',
           src: ['axios/dist/axios.min.js'],
-          dest: '.tmp/public/js/_2'
+          dest: '.tmp/public/js'
         },
         {
           expand: true,
           cwd: './node_modules',
           src: ['sweetalert2/dist/sweetalert2.min.js'],
-          dest: '.tmp/public/js/_2'
+          dest: '.tmp/public/js'
         },
         {
           expand: true,
@@ -77,13 +77,13 @@ module.exports = function (grunt) {
           expand: true,
           cwd: './node_modules',
           src: ['@fortawesome/fontawesome-free/js/all.min.js'],
-          dest: '.tmp/public/js/_2'
+          dest: '.tmp/public/js'
         },
         {
           expand: true,
           cwd: './node_modules',
           src: ['moment/min/moment.min.js'],
-          dest: '.tmp/public/js/_2'
+          dest: '.tmp/public/js'
         }
       ]
     },
