@@ -15,7 +15,7 @@ module.exports = function (grunt) {
     dist: {
       options: {
         presets: [require('sails-hook-grunt/accessible/babel-preset-env')],
-        compact: false
+        /* compact: false */ // Fix grunt issue in production
       },
       files: [{
         expand: true,
