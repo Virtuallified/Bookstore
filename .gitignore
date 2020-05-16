@@ -124,7 +124,7 @@ nbproject
 .vscode
 .node_history
 dump.rdb
-
+coverage/
 npm-debug.log
 lib-cov
 *.seed
