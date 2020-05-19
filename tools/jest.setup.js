@@ -3,7 +3,7 @@ var sails = require('sails');
 // Before running any tests...
 beforeAll(function (done) {
   // Increase the Mocha timeout so that Sails has enough time to lift, even if you have a bunch of assets.
-  jest.setTimeout(30000); // in milliseconds
+  jest.setTimeout(600000); // in milliseconds
   // console.log('beforeAll')
   sails.lift({
     // Your Sails app's configuration files will be loaded automatically,
@@ -16,7 +16,7 @@ beforeAll(function (done) {
       // orm: false
     },
     log: {
-      level: 'warn'
+      level: 'warn', // silly, verbose, info, debug, warn, error
     },
   }, function (err) {
     if (err) {

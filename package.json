@@ -39,15 +39,11 @@
   },
   "scripts": {
     "start": "NODE_ENV=production node app.js",
-    "test": "jest --passWithNoTests",
-    "test:watch": "npm run test -- --watch",
-    "test:coverage": "npm run test -- --coverage"
+    "test": "jest --passWithNoTests --runInBand",
+    "test:watch": "npm run test -- --watch --passWithNoTests --runInBand --detectOpenHandles",
+    "test:coverage": "npm run test -- --coverage --passWithNoTests --runInBand"
   },
   "main": "app.js",
-  "jest": {
-    "setupFilesAfterEnv": ["<rootDir>/tools/jest.setup.js"],
-    "testMatch": ["<rootDir>/tests/**/*.(spec|test).js"]
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Virtuallified/Bookstore.git"
