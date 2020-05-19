@@ -3,7 +3,7 @@ var supertest = require('supertest');
 // Write your test cases below
 describe('Home Controller', () => {
   describe('index :', () => {
-    it('validate response', async () => await supertest(sails.hooks.http.app).get('/').expect(200));
+    it('Validate Homepage Response', async () => await supertest(sails.hooks.http.app).get('/').expect(200));
   });
 });
 

@@ -27,6 +27,9 @@ module.exports.routes = {
   'DELETE /Books/:id': 'Books.delete',
    */
 
+  'GET /csrfToken': {
+    action: 'security/grant-csrf-token'
+  },
   // For WebApp Routing
   'GET /': 'Home.index',
   'GET /Login': {

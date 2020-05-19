@@ -69,5 +69,4 @@ module.exports.datastores = {
     replicaSet: process.env.CLUSTER,
     authSource: 'admin',
   },
-
 };

@@ -12,7 +12,7 @@ module.exports = {
   login: function (req, res) {
     passport.authenticate('local', function (err, user, info) {
       if (err || !user) {
-        return res.send({
+        return res.status(401).send({
           message: info.message,
           user
         });

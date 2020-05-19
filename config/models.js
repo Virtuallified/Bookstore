@@ -127,7 +127,11 @@ module.exports.models = {
    *                                                                          *
    ***************************************************************************/
 
-  cascadeOnDestroy: true
+  cascadeOnDestroy: true,
 
+  /* model will now return the records that were updated. But the rest of your 
+     models will be unaffected: they will still use the default setting (which 
+     is fetchRecordsOnUpdate: false, unless you've changed it). */
+  fetchRecordsOnUpdate: true
 
 };

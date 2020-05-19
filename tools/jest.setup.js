@@ -1,30 +1,10 @@
-// const sails = require('sails');
-// const request = require('supertest');
-
-// beforeAll(done => {
-//   jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
-//   global.app = request(sails.hooks.http.app);
-//   sails.lift({
-//     hooks: {
-//       grunt: false,
-//       orm: false
-//     }
-//   }, err => {
-
-//     done(err, sails);
-//   });
-// });
-
-// afterAll(sails.lower);
-
-
 var sails = require('sails');
-// var _ = require('lodash');
 
 // Before running any tests...
 beforeAll(function (done) {
   // Increase the Mocha timeout so that Sails has enough time to lift, even if you have a bunch of assets.
-  jest.setTimeout(10000); // in milliseconds
+  jest.setTimeout(30000); // in milliseconds
+  // console.log('beforeAll')
   sails.lift({
     // Your Sails app's configuration files will be loaded automatically,
     // but you can also specify any other special overrides here for testing purposes.
@@ -33,7 +13,7 @@ beforeAll(function (done) {
     // and disable all logs except errors and warnings:
     hooks: {
       grunt: false,
-      orm: false
+      // orm: false
     },
     log: {
       level: 'warn'
@@ -52,6 +32,6 @@ beforeAll(function (done) {
 afterAll(function (done) {
   // here you can clear fixtures, etc.
   // (e.g. you might want to destroy the records you created above)
+  // console.log('afterAll')
   sails.lower(done);
-
 });
