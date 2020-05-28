@@ -4,8 +4,8 @@
  * USAGE : await sails.helpers.uniSearch('Table', data, null, null, 'DESC')
  */
 module.exports = {
-  friendlyName: 'Uni Search',
-  description: 'Universal Search Helper',
+  friendlyName: 'Uni Search Helper',
+  description: 'Universal Search compatible for all databases supported by sails.js',
 
   // Take inputs from helper call
   inputs: {
