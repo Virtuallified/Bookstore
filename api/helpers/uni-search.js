@@ -1,5 +1,7 @@
 /**
  * Universal Search Helper
+ * ------------------------------------------------------------------------
+ * USAGE : await sails.helpers.uniSearch('Table', data, null, null, 'DESC')
  */
 module.exports = {
   friendlyName: 'Uni Search',
@@ -7,23 +9,23 @@ module.exports = {
 
   // Take inputs from helper call
   inputs: {
-    modelName: {
+    modelname: {
       type: 'string',
       required: true
     },
     data: {
       type: 'ref',
-      description: 'search criteria data object',
+      description: 'search criteria data={} object',
       required: true
     },
-    populateDoc: {
+    association: {
       type: 'string',
       description: 'should be the name of an assocation',
       allowNull: true
     },
     projection: {
       type: 'ref',
-      description: 'array of select fields'
+      description: 'array[] of select fields'
     },
     sorting: {
       type: 'string',
@@ -44,29 +46,29 @@ module.exports = {
     try {
       (!inputs.sorting) ? inputs.sorting = 'DESC': inputs.sorting
       // Run the query
-      if (inputs.projection !== null && inputs.projection !== undefined && inputs.populateDoc !== null && inputs.populateDoc !== undefined) {
+      if (inputs.projection !== null && inputs.projection !== undefined && inputs.association !== null && inputs.association !== undefined) {
         // With all parameters
-        var data = await eval(inputs.modelName).find({
+        var data = await eval(inputs.modelname).find({
             where: inputs.data,
             select: inputs.projection
           })
-          .populate(inputs.populateDoc)
+          .populate(inputs.association)
           .sort('id ' + inputs.sorting)
-      } else if ((!inputs.projection || inputs.projection === null) && inputs.populateDoc !== undefined && inputs.populateDoc !== null) {
+      } else if ((!inputs.projection || inputs.projection === null) && inputs.association !== undefined && inputs.association !== null) {
         // Without projection
-        var data = await eval(inputs.modelName).find(inputs.data)
-          .populate(inputs.populateDoc)
+        var data = await eval(inputs.modelname).find(inputs.data)
+          .populate(inputs.association)
           .sort('id ' + inputs.sorting)
-      } else if ((inputs.populateDoc === null || !inputs.populateDoc) && inputs.projection !== undefined && inputs.projection !== null) {
-        // Without populateDoc
-        var data = await eval(inputs.modelName).find({
+      } else if ((inputs.association === null || !inputs.association) && inputs.projection !== undefined && inputs.projection !== null) {
+        // Without association
+        var data = await eval(inputs.modelname).find({
             where: inputs.data,
             select: inputs.projection
           })
           .sort('id ' + inputs.sorting)
-      } else if ((!inputs.projection || inputs.projection === null) && (inputs.populateDoc === null || !inputs.populateDoc)) {
-        // Without projection & populateDoc
-        var data = await eval(inputs.modelName).find(inputs.data)
+      } else if ((!inputs.projection || inputs.projection === null) && (inputs.association === null || !inputs.association)) {
+        // Without projection & association
+        var data = await eval(inputs.modelname).find(inputs.data)
           .sort('id ' + inputs.sorting)
       }
 

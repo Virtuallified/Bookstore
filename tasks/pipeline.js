@@ -52,6 +52,7 @@ var cssFilesToInject = [
   'styles/icheck-bootstrap/icheck-bootstrap.css',
   'styles/overlayScrollbars/OverlayScrollbars.css',
   'styles/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.css',
+  'styles/toastr/toastr.css',
   'styles/custom.css'
 ];
 
@@ -96,13 +97,14 @@ var jsFilesToInject = [
   'js/datatables-bs4/dataTables.bootstrap4.js',
   'js/datatables-responsive/dataTables.responsive.js',
   'js/datatables-responsive/responsive.bootstrap4.js',
-  'js/axios/dist/axios.js', // Not working in Production
-  'js/moment/moment.js', // Not working in Production
-  'js/daterangepicker/daterangepicker.js', // Not working in Production
+  'js/axios/dist/axios.js',
+  'js/moment/moment.js',
+  'js/daterangepicker/daterangepicker.js',
   'js/select2/dist/js/select2.full.js',
   'js/sweetalert2/dist/sweetalert2.js',
   'js/overlayScrollbars/jquery.overlayScrollbars.js',
-  'js/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.js', // Not working in Production
+  'js/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.js',
+  'js/toastr/toastr.min.js',
   'js/adminlte3/adminlte.js',
   'js/script.js',
 

@@ -33,7 +33,10 @@ module.exports = {
           })
         // sails.log(showAllBooks)
       } catch (err) {
-        return res.status(500).send('No books in Database!')
+        return res.view('admin/books', {
+          message: 'No books in database!'
+        })
+        // return res.status(500).send('No books in database!')
         // throw err
       }
     }
@@ -163,7 +166,7 @@ module.exports = {
           reorderStatus: false,
           status: "pending"
         }).fetch()
-        sails.log('inventory_id is :', inventory.id);
+        sails.log.info('inventory_id : CREATED :', inventory.id);
         inventory_id = inventory.id;
         const book = await Books.create({
           book: bookName,
@@ -178,7 +181,7 @@ module.exports = {
           language,
           _Inventory: inventory.id
         }).fetch()
-        sails.log('book_id is :', book.id);
+        sails.log.info('book_id : CREATED :', book.id);
         return {
           book,
           inventory
@@ -189,7 +192,7 @@ module.exports = {
           Inventory.destroy({
             id: inventory_id
           }).then(
-            sails.log(`inventory item has been successfully deleted with ID : ${inventory_id}`)
+            sails.log.info(`inventory_id : DELETED : ${inventory_id}`)
           ).catch(err => res.serverError(err))
         } catch (err) {
           throw err
@@ -264,7 +267,7 @@ module.exports = {
             booksDetails
           )
           .then(books => {
-            sails.log('book_id is : ' + books.id + ' : updated')
+            sails.log.info('book_id : UPDATED : ' + books.id)
             return res.ok(books)
           })
       } catch (err) {
@@ -302,7 +305,7 @@ module.exports = {
         const deleteInventory = await Inventory.destroy({
           id: findBook._Inventory.id
         }).then(inventory => {
-          sails.log('book_id is : ' + mongo_bookId + ' : deleted')
+          sails.log.info('book_id : DELETED : ' + mongo_bookId)
           res.ok(`Successfully deleted data with Book ID : ${mongo_bookId} & Inventory ID : ${findBook._Inventory.id}`)
         }).catch(err => res.serverError(err))
       } catch (err) {
@@ -317,6 +320,23 @@ module.exports = {
    * `BooksController.search()`
    */
   search: async function (req, res) {
-    res.view('admin/bookSearch')
+    let data = req.allParams()
+    delete data._csrf;
+    const makeRequest = async () => {
+      try {
+        const details = await sails.helpers.uniSearch('Books', data)
+        if (!details || details.length === 0) {
+          throw new Error('No Books Found')
+        }
+        return res.view('generated/table_bookSearch', {
+          books: details
+        })
+      } catch (err) {
+        return res.view('generated/table_bookSearch', {
+          message: 'No books in database!'
+        })
+      }
+    }
+    makeRequest()
   },
 };

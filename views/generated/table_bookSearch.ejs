@@ -1,0 +1,46 @@
+<!-- .card-body -->
+<div id="result" class="card-body">
+  <table id="generatedTable" class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Book</th>
+        <th>Author</th>
+        <th>Publisher</th>
+        <th>ISBN</th>
+        <th>Price</th>
+        <th>Genre</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (res.locals.message) { %>
+      <tr>
+        <% for(i=0;i< 6;i++) { %>
+        <td class="hide"></td>
+        <% } %>
+        <td colspan="7" class="text-center"><%= message %></td>
+      </tr>
+      <% } %>
+      <% if (res.locals.books) { books.forEach(function(book) { %>
+      <tr>
+        <td><%= book.book %></td>
+        <td><%= book.author %></td>
+        <td><%= book.publisher %></td>
+        <td><%= book.isbn_10 %>
+          <br><%= book.isbn_13 %></td>
+        <td><%= book.price %></td>
+        <td><%= book.genre %></td>
+        <td>
+          <div class="btn-group">
+            <button type="button" class="btn btn-outline-primary view" value="<%= book.id%>"><i
+                class="fas fa-eye"></i></button>
+            <button type="button" class="btn btn-outline-danger pdf" value="<%= book.id%>"><i
+                class="fas fa-file-pdf"></i></button>
+          </div>
+        </td>
+      </tr>
+      <% })} %>
+    </tbody>
+  </table>
+</div>
+<!-- /.card-body -->

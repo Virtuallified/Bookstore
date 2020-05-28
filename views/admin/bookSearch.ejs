@@ -26,57 +26,98 @@
             </div>
           </div>
           <!-- /.card-header -->
-          <div class="card-body">
-            <div class="row">
+          <form>
+            <div class="card-body">
+              <fieldset class="border p-2" style="width: -webkit-fill-available;">
+                <legend class="w-auto">
+                  <h6>Criteria</h6>
+                </legend>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <!-- checkbox -->
+                    <div class="form-group clearfix">
+                      <div class="icheck-success d-inline">
+                        <input type="checkbox" id="cb_book_name">
+                        <label for="cb_book_name">
+                          by Name
+                        </label>
+                      </div>
+                      <div class="icheck-success d-inline">
+                        <input type="checkbox" id="cb_author_name">
+                        <label for="cb_author_name">
+                          by Author
+                        </label>
+                      </div>
+                      <div class="icheck-success d-inline">
+                        <input type="checkbox" id="cb_publisher_name">
+                        <label for="cb_publisher_name">
+                          by Publisher
+                        </label>
+                      </div>
+                      <div class="icheck-success d-inline">
+                        <input type="checkbox" id="cb_genre">
+                        <label for="cb_genre">
+                          by Genre
+                        </label>
+                      </div>
+                      <div class="icheck-success d-inline">
+                        <input type="checkbox" id="cb_lang">
+                        <label for="cb_lang">
+                          by Language
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.row -->
+              </fieldset>
 
-
+              <fieldset id="fields" class="border p-2" style="width: -webkit-fill-available;">
+                <legend class="w-auto">
+                  <h6>Fields</h6>
+                </legend>
+                <div class="row">
+                  <div class="col-sm-2">
+                    <input class="form-control" name="book_name" placeholder="Book's name" disabled>
+                  </div>
+                  <div class="col-sm-2">
+                    <input class="form-control" name="author_name" placeholder="Author's name" disabled>
+                  </div>
+                  <div class="col-sm-2">
+                    <input class="form-control" name="publisher_name" placeholder="Publisher's name" disabled>
+                  </div>
+                  <div class="col-sm-2">
+                    <input class="form-control" name="genre" placeholder="Genre" disabled>
+                  </div>
+                  <div class="col-sm-2">
+                    <input class="form-control" name="lang" placeholder="Language" disabled>
+                  </div>
+                </div>
+                <!-- /.row -->
+              </fieldset>
+              <br>
+              <div class="row d-flex justify-content-center">
+                <button id="submit" type="button" class="btn btn-primary">Search</button>
+              </div>
+              <!-- /.row -->
             </div>
-            <!-- /.row -->
-          </div>
-          <!-- /.card-body -->
+            <!-- /.card-body -->
+          </form>
           <div class="card-footer" style="text-align: center;">
             Your search result will appear below
           </div>
         </div>
         <!-- /.card -->
         <!-- /.SEARCH PANEL -->
-        <div class="shadow-lg p-3 mb-0 bg-white rounded">
+        <div id="result-area" class="shadow-lg p-3 mb-0 bg-white rounded hide">
           <!-- <div class="card"> -->
           <div class="card-header">
             <h3 class="card-title">Result for your search</h3>
           </div>
           <!-- /.card-header -->
-          <div class="card-body">
-            <table id="bookTable" class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>Book</th>
-                  <th>Author</th>
-                  <th>Publisher</th>
-                  <th>ISBN</th>
-                  <th>Price</th>
-                  <th>Genre</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-outline-primary view"><i class="fas fa-eye"></i></button>
-                      <button type="button" class="btn btn-outline-danger pdf" value=""><i
-                          class="fas fa-file-pdf"></i></button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div id="result" class="card-body">
+            <!-- Table will be generated here from another EJS file. -->
+            <!-- EJS is server-side code. If you want to generate your HTML server side instead of modifying the DOM client side, then call ajax for html response which gets the data and inserts it into an EJS template. -->
           </div>
           <!-- /.card-body -->
           <!-- </div> -->
@@ -93,3 +134,98 @@
   </div>
   <!-- ./wrapper -->
 </div>
+<%- exposeLocalsToBrowser() %>
+<script>
+  $(function () {
+    // TOGGLE FOR ENABLE & DISABLE
+    $('#cb_book_name').click(function () {
+      if ($(this).is(":checked")) {
+        $("input[name='book_name']").removeAttr("disabled");
+      } else if ($(this).is(":not(:checked)")) {
+        $("input[name='book_name']").attr('disabled', 'disabled');
+      }
+    })
+    $('#cb_author_name').click(function () {
+      if ($(this).is(":checked")) {
+        $("input[name='author_name']").removeAttr("disabled");
+      } else if ($(this).is(":not(:checked)")) {
+        $("input[name='author_name']").attr('disabled', 'disabled');
+      }
+    })
+    $('#cb_publisher_name').click(function () {
+      if ($(this).is(":checked")) {
+        $("input[name='publisher_name']").removeAttr("disabled");
+      } else if ($(this).is(":not(:checked)")) {
+        $("input[name='publisher_name']").attr('disabled', 'disabled');
+      }
+    })
+    $('#cb_genre').click(function () {
+      if ($(this).is(":checked")) {
+        $("input[name='genre']").removeAttr("disabled");
+      } else if ($(this).is(":not(:checked)")) {
+        $("input[name='genre']").attr('disabled', 'disabled');
+      }
+    })
+    $('#cb_lang').click(function () {
+      if ($(this).is(":checked")) {
+        $("input[name='lang']").removeAttr("disabled");
+      } else if ($(this).is(":not(:checked)")) {
+        $("input[name='lang']").attr('disabled', 'disabled');
+      }
+    })
+    // SEARCH
+    $('#submit').click(function () {
+      // Manage data for POST request
+      var dataString = {}
+      if ($("input[name='book_name']").val() != "") {
+        dataString.book = $("input[name='book_name']").val()
+      }
+      if ($("input[name='author_name']").val() != "") {
+        dataString.author = $("input[name='author_name']").val()
+      }
+      if ($("input[name='publisher_name']").val() != "") {
+        dataString.publisher = $("input[name='publisher_name']").val()
+      }
+      if ($("input[name='genre']").val() != "") {
+        dataString.genre = $("input[name='genre']").val()
+      }
+      if ($("input[name='lang']").val() != "") {
+        dataString.language = $("input[name='lang']").val()
+      }
+      if (Object.keys(dataString).length === 0) {
+        toastr.warning('Please choose a valid search criteria')
+      } else {
+        $('.card').addClass('collapsed-card')
+        $('.card-footer').text('Your search result appeared below')
+        $('#result-area').removeClass('hide')
+        dataString._csrf = window.SAILS_LOCALS._csrf
+        // MAKE SEARCH REQUEST
+        $.ajax({
+          method: 'POST',
+          cache: false,
+          url: '/Books/Search',
+          data: dataString,
+          success: function (result) {
+            $('#result').html(result);
+            // DATATABLE CONFIG
+            $('#generatedTable').DataTable({
+              "paging": true,
+              "lengthChange": false,
+              "searching": false,
+              "ordering": true,
+              "info": false,
+              "autoWidth": false,
+              "responsive": true,
+            });
+          },
+          error: function (err) {
+            toastr.error('Something went wrong. Please try again!')
+            console.log(err)
+          },
+        })
+      }
+      // console.log(dataString)
+    })
+  })
+
+</script>

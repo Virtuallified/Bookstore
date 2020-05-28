@@ -20,7 +20,7 @@ module.exports = {
 
       req.login(user, function (err) {
         if (err) res.send(err);
-        sails.log('User ' + user.id + ' has logged in.');
+        sails.log.info('User ' + user.id + ' has logged in.');
         sails.helpers.sessionHelper(user, req.session)
         // res.send(req.session)
         // console.log(req.session)
@@ -34,7 +34,7 @@ module.exports = {
    * `AuthController.logout()`
    */
   logout: function (req, res) {
-    sails.log('User ' + req.session.user.id + ' has logged out.');
+    sails.log.info('User ' + req.session.user.id + ' has logged out.');
     req.logout();
     req.session.destroy()
     res.redirect('/Login');
@@ -59,7 +59,7 @@ module.exports = {
           ip_address: '0.0.0.0',
           system: 'Ubuntu',
         }).fetch()
-        sails.log('profile_id is :', createPro.id);
+        sails.log.info('profile_id is :', createPro.id);
         data._ProfileID = createPro.id;
         // sails.log(data)
         const createUse = await User.create(data).fetch().exec(function (err, user) {
@@ -69,7 +69,7 @@ module.exports = {
           req.login(user, function (err) {
             if (err) return res.serverError(err);
             sails.helpers.sessionHelper(user, req.session)
-            sails.log('User ' + user.id + ' has signed in.');
+            sails.log.info('User ' + user.id + ' has signed in.');
             return res.redirect('/Dashboard');
           })
         })
@@ -79,7 +79,7 @@ module.exports = {
           Profile.destroy({
             id: data.profile_id
           }).then(
-            sails.log(`profile has been successfully deleted with ID : ${inventory_id}`)
+            sails.log.info(`profile has been successfully deleted with ID : ${inventory_id}`)
           ).catch(err => res.serverError(err))
         } catch (err) {
           throw new Error('User not created and problem occurs at deletion of profile')

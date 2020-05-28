@@ -27,17 +27,12 @@ module.exports.routes = {
   'DELETE /Books/:id': 'Books.delete',
    */
 
-  'GET /csrfToken': {
-    action: 'security/grant-csrf-token'
-  },
+  // Generate CSRF Token 
+  'GET /csrfToken': {action: 'security/grant-csrf-token'},
   // For WebApp Routing
   'GET /': 'Home.index',
-  'GET /Login': {
-    view: 'pages/login'
-  },
-  'GET /Register': {
-    view: 'pages/register'
-  },
+  'GET /Login': {view: 'pages/login'},
+  'GET /Register': {view: 'pages/register'},
   // LOGIN
   'GET /Logout': 'Auth.logout',
   'POST /Login': 'Auth.login',
@@ -53,7 +48,8 @@ module.exports.routes = {
   'POST /Books/Create': 'Books.create',
   'PUT /Books/Update/:id': 'Books.update',
   'DELETE /Books/Delete/:id': 'Books.delete',
-  'GET /Books/Search': 'Books.search',
+  'GET /Books/Search': {view: 'admin/bookSearch', policy: 'Authentication'},
+  'POST /Books/Search': 'Books.search',
 
 
   /***************************************************************************

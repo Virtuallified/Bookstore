@@ -34,7 +34,17 @@
                 </tr>
               </thead>
               <tbody>
-                <% books.forEach(function(book) { %>
+                <!--% if (res.locals.message) { %-->
+                <!-- <tr> -->
+                <!--% for (i = 0; i < 6; i++) { %-->
+                <!-- <td class="hide"></td> -->
+                <!--% } %-->
+                <!--td colspan="7" class="text-center"-->
+                <!--%= message %-->
+                <!--/td-->
+                <!-- </tr> -->
+                <!--% } %-->
+                <% if (res.locals.books) { books.forEach(function(book) { %>
                 <tr>
                   <td><%= book.book %></td>
                   <td><%= book.author %></td>
@@ -45,7 +55,8 @@
                   <td><%= book.genre %></td>
                   <td>
                     <div class="btn-group">
-                      <button type="button" class="btn btn-outline-primary"><i class="fas fa-eye"></i></button>
+                      <button type="button" class="btn btn-outline-primary view" value="<%= book.id%>"><i
+                          class="fas fa-eye"></i></button>
                       <button type="button" class="btn btn-outline-success edit" value="<%= book.id%>"><i
                           class="fas fa-pencil-alt"></i></button>
                       <button type="button" class="btn btn-outline-danger delete" value="<%= book.id%>"><i
@@ -53,7 +64,7 @@
                     </div>
                   </td>
                 </tr>
-                <% }); %>
+                <% })} %>
               </tbody>
             </table>
           </div>

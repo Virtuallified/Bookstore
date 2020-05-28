@@ -5,6 +5,7 @@
 This project is about book keeping and managing it in a well manner.
 <br>Language : Node.js
 <br>Framework : Sail.js
+<br>Testing Kit : Jest, Supertest
 <br>Database : MongoDB
 <br>IDE : VS Code
 <br>Template Engine : EJS
@@ -40,17 +41,14 @@ npm start
 
 ### 6. Runs the app in the development mode
 Open URL : To view the site in the browser.
-```
 [http://localhost:1337/](http://localhost:1337/)
-```
 
 ### 7. For demo purpose view the app is in production mode
-```
+Only for demo purpose
 [https://bookstores-app.herokuapp.com](https://bookstores-app.herokuapp.com)
-```
 
 ### Disclaimer
 This project is only build for educational purpose
 
 ### Special thanks & gratitude to :
-Sails.js Framework, AdminLTE, Fontawesome, Flaticon & other JS package owners
+Sails.js Framework, AdminLTE, Jest (by Facebook), Fontawesome, Flaticon & other JS package owners
