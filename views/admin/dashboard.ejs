@@ -23,7 +23,8 @@
 
                 <div class="info-box-content">
                   <span class="info-box-text">Books</span>
-                  <span class="info-box-number">41,410</span>
+                  <span
+                    class="info-box-number"><% if (res.locals.bookCount) { %><%= bookCount %><% } else { %>0<% } %></span>
 
                   <div class="progress">
                     <div class="progress-bar bg-warning progress-bar-striped" style="width: 75%"></div>
