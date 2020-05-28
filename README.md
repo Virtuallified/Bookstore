@@ -47,8 +47,11 @@ Open URL : To view the site in the browser.
 Only for demo purpose
 [https://bookstores-app.herokuapp.com](https://bookstores-app.herokuapp.com)
 
-### Disclaimer
+#### Note:
+This project was tested and CI/CD implemented via Github to Heroku Server
+
+#### Disclaimer
 This project is only build for educational purpose
 
-### Special thanks & gratitude to :
+#### Special thanks & gratitude to :
 Sails.js Framework, AdminLTE, Jest (by Facebook), Fontawesome, Flaticon & other JS package owners
