@@ -321,7 +321,6 @@ module.exports = {
    */
   search: async function (req, res) {
     let data = req.allParams()
-    delete data._csrf;
     const makeRequest = async () => {
       try {
         const details = await sails.helpers.uniSearch('Books', data)

@@ -43,32 +43,42 @@ module.exports = {
   },
 
   fn: async function (inputs, exits) {
+    delete inputs.data._csrf;
+    // New object from raw data, made for SQL Like operation [CASE-SENSITIVE]
+    var processedData = {}
+    Object.keys(inputs.data).forEach(function (item) {
+      // console.log('key : ', item); // key
+      // console.log('value : ', inputs.data[item]); // value
+      processedData[item] = {
+        contains: inputs.data[item]
+      }
+    });
     try {
       (!inputs.sorting) ? inputs.sorting = 'DESC': inputs.sorting
       // Run the query
       if (inputs.projection !== null && inputs.projection !== undefined && inputs.association !== null && inputs.association !== undefined) {
         // With all parameters
         var data = await eval(inputs.modelname).find({
-            where: inputs.data,
+            where: processedData,
             select: inputs.projection
           })
           .populate(inputs.association)
           .sort('id ' + inputs.sorting)
       } else if ((!inputs.projection || inputs.projection === null) && inputs.association !== undefined && inputs.association !== null) {
         // Without projection
-        var data = await eval(inputs.modelname).find(inputs.data)
+        var data = await eval(inputs.modelname).find(processedData)
           .populate(inputs.association)
           .sort('id ' + inputs.sorting)
       } else if ((inputs.association === null || !inputs.association) && inputs.projection !== undefined && inputs.projection !== null) {
         // Without association
         var data = await eval(inputs.modelname).find({
-            where: inputs.data,
+            where: processedData,
             select: inputs.projection
           })
           .sort('id ' + inputs.sorting)
       } else if ((!inputs.projection || inputs.projection === null) && (inputs.association === null || !inputs.association)) {
         // Without projection & association
-        var data = await eval(inputs.modelname).find(inputs.data)
+        var data = await eval(inputs.modelname).find(processedData)
           .sort('id ' + inputs.sorting)
       }
 

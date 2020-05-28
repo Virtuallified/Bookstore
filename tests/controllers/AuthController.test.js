@@ -83,15 +83,15 @@ describe('Auth Controller', () => {
         .expect(404); // response : Not Found
     });
 
-    it('should login with proper credentials', (done) => {
+    it('should login with proper credentials via post request', (done) => {
       return supertest(sails.hooks.http.app)
         .post(this._url)
         .type('form')
         .set('Cookie', this._cookie)
         .set('X-CSRF-Token', this._csrf)
         .send({
-          username: 'admin',
-          password: '12345'
+          username: 'test',
+          password: 'abc123'
         })
         .expect(302, done) // response : Found (Previously "Moved temporarily")
     });
