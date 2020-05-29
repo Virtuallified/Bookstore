@@ -6,7 +6,10 @@
  */
 
 module.exports = {
-  index: (req, res) => {
-    res.view('admin/dashboard')
+  index: async (req, res) => {
+    var bookCount = await Books.count();
+    res.view('admin/dashboard', {
+      bookCount
+    })
   },
 };

@@ -29,7 +29,7 @@ passport.use(new LocalStrategy({
         message: 'Invalid Password'
       });
       return cb(null, user, {
-        message: 'Login Succesful'
+        message: 'Login Successful'
       });
     });
   });

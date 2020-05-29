@@ -39,9 +39,9 @@ var cssFilesToInject = [
   // All of the rest of your custom `.css` files will be injected here,
   // in no particular order.  To customize the ordering, add additional
   // items here, _above_ this one.
+  // 'styles/**/*.css' // To add all rest of the CSS files unorderedly
 
-  // 'styles/**/*.css'   // To add all CSS files unorderedly
-  // To ordering for minification 
+  // The ordering of minification 
   'styles/importer.css',
   'styles/adminlte3/adminlte.css',
   'styles/datatables-responsive/responsive.bootstrap4.css',
@@ -52,6 +52,7 @@ var cssFilesToInject = [
   'styles/icheck-bootstrap/icheck-bootstrap.css',
   'styles/overlayScrollbars/OverlayScrollbars.css',
   'styles/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.css',
+  'styles/toastr/toastr.css',
   'styles/custom.css'
 ];
 
@@ -85,9 +86,9 @@ var jsFilesToInject = [
   // All of the rest of your custom client-side js files will be injected here,
   // in no particular order.  To customize the ordering, add additional items
   // here, _above_ this one.
+  // 'js/**/*.js', // To add all rest of the JS files unorderedly
 
-  // 'js/**/*.js' // To add all JS files unorderedly
-  // To ordering for minification 
+  // The ordering of minification 
   'js/jquery/dist/jquery.min.js',
   'js/jqueryui/jquery-ui.js',
   'js/bootstrap/dist/js/bootstrap.bundle.js',
@@ -96,15 +97,17 @@ var jsFilesToInject = [
   'js/datatables-bs4/dataTables.bootstrap4.js',
   'js/datatables-responsive/dataTables.responsive.js',
   'js/datatables-responsive/responsive.bootstrap4.js',
-  // 'js/axios/dist/axios.js', // Not working in Production
-  // 'js/moment/moment.js', // Not working in Production
-  // 'js/daterangepicker/daterangepicker.js', // Not working in Production
+  'js/axios/dist/axios.js',
+  'js/moment/moment.js',
+  'js/daterangepicker/daterangepicker.js',
   'js/select2/dist/js/select2.full.js',
   'js/sweetalert2/dist/sweetalert2.js',
   'js/overlayScrollbars/jquery.overlayScrollbars.js',
-  // 'js/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.js', // Not working in Production
+  'js/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.js',
+  'js/toastr/toastr.min.js',
   'js/adminlte3/adminlte.js',
   'js/script.js',
+
 
   //Ignore local injected scripts
   '!js/local/*.js'

@@ -13,10 +13,10 @@
       </li>
       <% if (req.session.authenticated) { %>
       <li class="nav-item">
-        <a class="nav-link" href="/Dashboard">Dashboard</a>
+        <a class="nav-link" href="/Profile">@<%= req.session.user.username%></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Profile">Profile</a>
+        <a class="nav-link" href="/Dashboard">Dashboard</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/Books">Books</a>

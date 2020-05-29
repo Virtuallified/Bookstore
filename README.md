@@ -5,6 +5,7 @@
 This project is about book keeping and managing it in a well manner.
 <br>Language : Node.js
 <br>Framework : Sail.js
+<br>Testing Kit : Jest, Supertest
 <br>Database : MongoDB
 <br>IDE : VS Code
 <br>Template Engine : EJS
@@ -18,9 +19,8 @@ npm install
 ```
 
 ### 2. To run the app
-Dont use _sails lift_, because the app is going to crash for not founding the environment variables set by .dotenv package.
 ```
-node app.js
+sails lift   ||   node app.js
 ```
 
 ### 3. To test unit cases
@@ -39,5 +39,25 @@ After changing the specific environment variable for production
 npm start
 ```
 
-Runs the app in the development mode.<br>
-Open URL : [http://localhost:1337/](http://localhost:1337/) to view it in the browser.
+### 6. Runs the app in the development mode
+Open URL : To view the site in the browser.
+[http://localhost:1337/](http://localhost:1337/)
+
+### 7. For demo purpose view the app is in production mode
+Only for demo purpose
+[https://bookstores-app.herokuapp.com](https://bookstores-app.herokuapp.com)
+
+#### Note:
+This project was tested and CI/CD implemented via Github to Heroku Server.
+Strategy for Matrix, node-version: checked for [10.x, 12.x], but don't try it simultaneously for testing, because sails orm cannot handle it by doing sails lift at the same time for multiple request, so do it sequencially.
+* For best practices and better performance :
+```js
+node-version: [10.x, 12.x] -> [12.x]
+"test": "--runInBand"
+```
+
+#### Disclaimer
+This project is only build for educational purpose
+
+#### Special thanks & gratitude to :
+Sails.js Framework, AdminLTE, Jest (by Facebook), Fontawesome, Flaticon & other JS package owners
