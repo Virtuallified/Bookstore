@@ -28,30 +28,36 @@
           <div class="col-sm-4">
             <div class="card card-warning card-outline">
               <div class="card-header">
-                <h5 class="m-0">Featured Books</h5>
+                <h5 class="m-0"><span class="right badge badge-warning">5</span> Featured Books </h5>
               </div>
               <div class="card-body">
-                <br><br><br>
+                <% if (res.locals.data) { data.featured.forEach(function(key) { %>
+                <li><%= key.book %></li>
+                <% })} %>
               </div>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <h5 class="m-0">Top Rate Books</h5>
+                <h5 class="m-0"><span class="right badge badge-primary">5</span> Top Rate Books </h5>
               </div>
               <div class="card-body">
-                <br><br><br>
+                <% if (res.locals.data) { data.toprate.forEach(function(key) { %>
+                <li><%= key.book %></li>
+                <% })} %>
               </div>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="card card-success card-outline">
               <div class="card-header">
-                <h5 class="m-0">Book Genres</h5>
+                <h5 class="m-0"><span class="right badge badge-success">5</span> Book Genres </h5>
               </div>
               <div class="card-body">
-                <br><br><br>
+                <% if (res.locals.data) { data.genres.forEach(function(key) { %>
+                <li><%= key.genre %></li>
+                <% })} %>
               </div>
             </div>
           </div>
@@ -111,3 +117,11 @@
 <% include ./partials/footer %>
 
 <!--% block('localScripts', '<script src="/js/local/fastclick.js"></script>') %-->
+<script>
+  $(function () {
+    if ('<%= res.locals.message %>' != "") {
+      toastr.error('<%= res.locals.message %>')
+    }
+  })
+
+</script>
