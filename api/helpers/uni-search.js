@@ -1,7 +1,7 @@
 /**
  * Universal Search Helper
  * ------------------------------------------------------------------------
- * USAGE : await sails.helpers.uniSearch('Table', data, null, null, 'DESC')
+ * USAGE : await sails.helpers.uniSearch('Table', data, null, null, null, 'DESC')
  */
 module.exports = {
   friendlyName: 'Uni Search Helper',
@@ -25,7 +25,12 @@ module.exports = {
     },
     projection: {
       type: 'ref',
-      description: 'array[] of select fields'
+      description: 'array[] of select fields e.g [test1, test2]'
+    },
+    limitation: {
+      type: 'number',
+      description: 'limiting the return data',
+      allowNull: true
     },
     sorting: {
       type: 'string',
@@ -54,37 +59,42 @@ module.exports = {
       }
     });
     try {
-      (!inputs.sorting) ? inputs.sorting = 'DESC': inputs.sorting
+      (!inputs.limitation) ? inputs.limitation = await eval(inputs.modelname).count(): inputs.limitation;
+      (!inputs.sorting) ? inputs.sorting = 'DESC': inputs.sorting;
       // Run the query
       if (inputs.projection !== null && inputs.projection !== undefined && inputs.association !== null && inputs.association !== undefined) {
-        // With all parameters
+        // sails.log.warn('1st') // With all parameters
         var data = await eval(inputs.modelname).find({
             where: processedData,
             select: inputs.projection
           })
           .populate(inputs.association)
+          .limit(inputs.limitation)
           .sort('id ' + inputs.sorting)
       } else if ((!inputs.projection || inputs.projection === null) && inputs.association !== undefined && inputs.association !== null) {
-        // Without projection
+        // sails.log.warn('2nd') // Without projection
         var data = await eval(inputs.modelname).find(processedData)
           .populate(inputs.association)
+          .limit(inputs.limitation)
           .sort('id ' + inputs.sorting)
       } else if ((inputs.association === null || !inputs.association) && inputs.projection !== undefined && inputs.projection !== null) {
-        // Without association
+        // sails.log.warn('3rd') // Without association
         var data = await eval(inputs.modelname).find({
             where: processedData,
             select: inputs.projection
           })
+          .limit(inputs.limitation)
           .sort('id ' + inputs.sorting)
       } else if ((!inputs.projection || inputs.projection === null) && (inputs.association === null || !inputs.association)) {
-        // Without projection & association
+        // sails.log.warn('4th') // Without projection & association
         var data = await eval(inputs.modelname).find(processedData)
+          .limit(inputs.limitation)
           .sort('id ' + inputs.sorting)
       }
-
       // Return the records through the `success` exit.
       return exits.success(data);
     } catch (err) {
+      // console.log('err : ', err)
       return exits.error(err);
     }
   }

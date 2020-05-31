@@ -1,7 +1,7 @@
 /**
  * Universal Search Mongo Helper
  * ------------------------------------------------------------------------
- * USAGE : await sails.helpers.uniSearchMongo('Table', data, null, null, 'DESC')
+ * USAGE : await sails.helpers.uniSearchMongo('Table', data, null, null, null, 'DESC')
  */
 module.exports = {
   friendlyName: 'Uni Search Mongo Helper',
@@ -25,8 +25,13 @@ module.exports = {
     // },
     projection: {
       type: 'ref',
-      description: 'array[] of select fields'
+      description: 'array[] of select fields e.g [test1, test2]'
     },
+    // limitation: {
+    //   type: 'number',
+    //   description: 'limiting the return data',
+    //   allowNull: true
+    // },
     // sorting: {
     //   type: 'string',
     //   description: 'ASC or DESC'
