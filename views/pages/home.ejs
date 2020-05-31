@@ -1,19 +1,15 @@
-<!-- Header -->
-<% include ./partials/header %>
-<!-- ./Header -->
-
-<!-- Main content -->
-<main role="main">
-
+<div class="wrapper">
+  <!-- Header -->
+  <% include ./partials/header %>
+  <!-- ./Header -->
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="margin-left: 0em;">
-    <br>
+  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark"><br></h1>
+            <!-- <h1 class="m-0 text-dark"><br></h1> -->
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -23,6 +19,7 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
+        <!-- row -->
         <div class="row">
           <!-- /.col-md-6 -->
           <div class="col-sm-4">
@@ -78,7 +75,8 @@
                         <img class="img-circle img-bordered-sm" src="/images/avatar3.png" alt="user image">
                         <span class="username">
                           <a href="#">Jonathan Burke Jr.</a>
-                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                          <a href="#" class="float-right btn-tool" data-card-widget="remove"><i
+                              class="fas fa-times"></i></a>
                         </span>
                         <span class="description">Shared publicly - 7:30 PM today</span>
                       </div>
@@ -110,11 +108,9 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-</main>
-<!-- /.content -->
-<!-- /.content-wrapper -->
-<% include ./partials/footer %>
+  <% include ./partials/footer %>
+</div>
+<!-- ./wrapper -->
 
 <!--% block('localScripts', '<script src="/js/local/fastclick.js"></script>') %-->
 <script>
