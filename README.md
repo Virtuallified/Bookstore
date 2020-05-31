@@ -1,5 +1,5 @@
 # Bookstore APP ## v.1.0.5
-==========================
+
 ![Bookstore CI/CD](https://github.com/Virtuallified/Bookstore/workflows/Bookstore%20CI/CD/badge.svg?branch=master)
 
 This project is about book keeping and managing it in a well manner.
@@ -12,7 +12,7 @@ This project is about book keeping and managing it in a well manner.
 <br>Tools : Passport.js, Bcrypt, Bootstrap 4, 
 
 In the project directory, first you have to run -
--------------------------------------------------
+
 ### 1. First install all the dependencies
 ```
 npm install
@@ -51,7 +51,7 @@ Only for demo purpose
 This project was tested and CI/CD implemented via Github to Heroku Server.
 Strategy for Matrix, node-version: checked for [10.x, 12.x], but don't try it simultaneously for testing, because sails orm cannot handle it by doing sails lift at the same time for multiple request, so do it sequencially.
 * For best practices and better performance:
-1. CI/CD yml file
+1. CI/CD .yml
 ```yml
 node-version: [10.x, 12.x] -> [12.x]
 ```
@@ -61,7 +61,7 @@ node-version: [10.x, 12.x] -> [12.x]
 ```
 * Quick fix:
 1. If heroku server store the caches and not updating the production environment code
-```css
+```bash
 heroku restart -a bookstores-app
 ```
 
