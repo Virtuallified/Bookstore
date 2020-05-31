@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"Bookstore.profile"}],"uuid":"4501b8bd250141deb37134caf0fb8ddc"}

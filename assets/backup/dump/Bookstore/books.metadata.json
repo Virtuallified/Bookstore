@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"Bookstore.books"},{"v":{"$numberInt":"2"},"unique":true,"key":{"isbn_10":{"$numberInt":"1"}},"name":"isbn_10_1","ns":"Bookstore.books"}],"uuid":"0707a4cc52d94ef7aab4cb960a98c2d6"}

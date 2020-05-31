@@ -1,0 +1,79 @@
+Configuring Sails Application
+1. Fix TimeoutException
+Create a file 'config/env/hookTimeout.js' and add below codes
+// config/orm.js
+module.exports.hookTimeout = {
+  _hookTimeout: 60000 // I used 60 seconds as my new timeout
+};
+_____________________________________________________________________________________________________________
+
+2. Add Bootstrap/JQuery/Other CSS/JS in project through NPM -
+Just to be sure in sails you edit your 'tasks/config/copy.js' and add a new block, example:
+// tasks/config/copy.js
+module.exports = function(grunt) {
+
+  grunt.config.set('copy', {
+    dev: {
+      files: [
+        {
+          expand: true,
+          cwd: './node_modules',
+          src: ['bootstrap/dist/css/bootstrap.css'],
+          dest: '.tmp/public/styles'
+        },
+        {
+          expand: true,
+          cwd: './node_modules',
+          src: ['bootstrap/dist/js/bootstrap.js'],
+          dest: '.tmp/public/js'
+        },
+        {
+          expand: true,
+          cwd: './node_modules',
+          src: ['jquery/dist/jquery.js'],
+          dest: '.tmp/public/js'
+        }
+      ]
+    },
+    build: {
+      files: [{
+        expand: true,
+        cwd: '.tmp/public',
+        src: ['**/*'],
+        dest: 'www'
+      }]
+    }
+  });
+
+  grunt.loadNpmTasks('grunt-contrib-copy');
+};
+_____________________________________________________________________________________________________________
+
+3. Add CSS & JS files to 'tasks/pipeline.js' in var cssFilesToInject = [] & var jsFilesToInject = [] array, serially for better rendering and execution of the web page.
+// tasks/pipeline.js
+var cssFilesToInject = [
+  'dependencies/**/*.css',
+
+  // The ordering of minification 
+  'styles/importer.css',
+  'styles/adminlte3/adminlte.css',
+  'styles/select2/dist/css/select2.css',
+  'styles/sweetalert2/dist/sweetalert2.css',
+];
+var jsFilesToInject = [
+
+  // Load `sails.io` before everything else.
+  'dependencies/sails.io.js',
+  'dependencies/**/*.js',
+  // 'js/**/*.js', // To add all rest of the JS files unorderedly
+
+  // The ordering of minification 
+  'js/jquery/dist/jquery.min.js',
+  'js/jqueryui/jquery-ui.js',
+  'js/bootstrap/dist/js/bootstrap.bundle.js',
+  'js/@fortawesome/fontawesome-free/js/all.js',
+
+  //Ignore local injected scripts
+  '!js/local/*.js'
+];
+_____________________________________________________________________________________________________________
