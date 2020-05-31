@@ -19,21 +19,21 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                <label for="InputBook">Book</label>
+                <label for="InputBook">Book <span class="text-danger">*</span></label>
                 <input class="form-control" name="book_name" placeholder="Enter Book's name"
                   <% if (res.locals.book) { %> value="<%= book.book %>" <% } %>>
               </div>
             </div>
             <div class=" col-md-4">
               <div class="form-group">
-                <label for="InputBook">Author</label>
+                <label for="InputBook">Author <span class="text-danger">*</span></label>
                 <input class="form-control" name="author_name" placeholder="Enter Author's name"
                   <% if (res.locals.book) { %> value="<%= book.author %>" <% } %>>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="InputBook">Publisher</label>
+                <label for="InputBook">Publisher <span class="text-danger">*</span></label>
                 <input class="form-control" name="publisher_name" placeholder="Enter Publisher's name"
                   <% if (res.locals.book) { %> value="<%= book.publisher %>" <% } %>>
               </div>
@@ -42,7 +42,7 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                <label for="InputBook">ISBN 10</label>
+                <label for="InputBook">ISBN 10 <span class="text-danger">*</span></label>
                 <input class="form-control" name="isbn10" placeholder="Enter ISBN 10" <% if (res.locals.book) { %>
                   value="<%= book.isbn_10 %>" <% } %>>
               </div>
@@ -56,7 +56,7 @@
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="InputBook">Price</label>
+                <label for="InputBook">Price <span class="text-danger">*</span></label>
                 <input class="form-control" name="price" placeholder="Enter price of the book"
                   <% if (res.locals.book) { %> value="<%= book.price %>" <% } %>>
               </div>
@@ -185,30 +185,35 @@
         _csrf: window.SAILS_LOCALS._csrf,
       }
       // console.log(dataString)
-      $.ajax({
-        method: '<% if (res.locals.book) { %>PUT<% } else { %>POST<% } %>',
-        url: '<% if (res.locals.book) { %>/Books/Update/' + '<%= book.id %>' +
-          '<% } else { %>/Books/Create<% } %>',
-        data: dataString,
-        success: function (result) {
-          Swal.fire(
-            'Successfully',
-            '<% if (res.locals.book) { %>Updated<% } else { %>Inserted<% } %> 1 Book!',
-            'success'
-          ).then((result) => {
-            if (result.value) {
-              location.reload()
-            }
-          })
-        },
-        error: function () {
-          Swal.fire(
-            'Unsuccessful',
-            'Book not <% if (res.locals.book) { %>Updated<% } else { %>Inserted<% } %>. Try again!',
-            'error'
-          )
-        },
-      })
+      if (dataString.book_name == "" || dataString.author_name == "" || dataString.publisher_name == "" ||
+        dataString.isbn10 == "" || dataString.price == "") {
+        toastr.warning('Please enter mandatory fields')
+      } else {
+        $.ajax({
+          method: '<% if (res.locals.book) { %>PUT<% } else { %>POST<% } %>',
+          url: '<% if (res.locals.book) { %>/Books/Update/' + '<%= book.id %>' +
+            '<% } else { %>/Books/Create<% } %>',
+          data: dataString,
+          success: function (result) {
+            Swal.fire(
+              'Successfully',
+              '<% if (res.locals.book) { %>Updated<% } else { %>Inserted<% } %> 1 Book!',
+              'success'
+            ).then((result) => {
+              if (result.value) {
+                location.reload()
+              }
+            })
+          },
+          error: function () {
+            Swal.fire(
+              'Unsuccessful',
+              'Book not <% if (res.locals.book) { %>Updated<% } else { %>Inserted<% } %>. Try again!',
+              'error'
+            )
+          },
+        })
+      }
     })
   });
 
