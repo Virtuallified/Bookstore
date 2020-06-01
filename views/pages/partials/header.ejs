@@ -1,82 +1,94 @@
-<!-- Navbar -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <img class="navbar-brand" src="/images/books-logo.png" alt="Bookstore" width="40" height="50">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand-md navbar-light navbar-dark">
+    <div class="container">
+      <a href="/" class="navbar-brand">
+        <img src="/images/books-logo.png" alt="Bookstore" class="brand-image">
+        <span class="brand-text font-weight-light">Bookstore</span>
+      </a>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Bookstore<span class="sr-only">(current)</span></a>
-      </li>
+      <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <% if (req.session.authenticated) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/Dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Books">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Inventory</a>
+          </li>
+          <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/Login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Register">Register</a>
+          </li>
+          <% } %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="more" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">More</a>
+            <div class="dropdown-menu" aria-labelledby="more">
+              <a class="dropdown-item" href="#">Public Books</a>
+              <a class="dropdown-item" href="#">Request Books</a>
+            </div>
+          </li>
+        </ul>
+
+        <!-- SEARCH FORM -->
+        <form class="form-inline ml-0 ml-md-3">
+          <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar search-bar-adjust" type="search" placeholder="Search Books"
+              aria-label="Search">
+            <div class="input-group-append">
+              <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
       <% if (req.session.authenticated) { %>
-      <li class="nav-item">
-        <a class="nav-link" style="color:#00ff14;" href="/Profile">@<%= req.session.user.username%></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/Dashboard">Dashboard</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/Books">Books</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Inventory</a>
-      </li>
-      <% } else { %>
-      <li class="nav-item">
-        <a class="nav-link" href="/Login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/Register">Register</a>
-      </li>
+      <!-- Right navbar links -->
+      <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+        <!-- Username -->
+        <li class="nav-item">
+          <a class="nav-link" style="color:#00ff14;" href="/Profile">@<%= req.session.user.username%></a>
+        </li>
+        <!-- Notifications Dropdown Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-bell"></i>
+            <span class="badge badge-warning navbar-badge">15</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-item dropdown-header">15 Notifications</span>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-envelope mr-2"></i> 4 new messages
+              <span class="float-right text-muted text-sm">3 mins</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+          </div>
+        </li>
+        <!-- Logout from system -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="fa fa-power-off" style="color:red;"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+            <a href="/logout" class="dropdown-item">Logout</a>
+          </div>
+        </li>
+      </ul>
       <% } %>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="more" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">More</a>
-        <div class="dropdown-menu" aria-labelledby="more">
-          <a class="dropdown-item" href="#">Public Books</a>
-          <a class="dropdown-item" href="#">Request Books</a>
-        </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search Books" aria-label="Search">
-      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-
-  <% if (req.session.authenticated) { %>
-  <!-- Right navbar links -->
-  <ul class="navbar-nav ml-auto">
-    <!-- Notifications Dropdown Menu -->
-    <li class="nav-item dropdown">
-      <a class="nav-link" data-toggle="dropdown" href="#">
-        <i class="far fa-bell"></i>
-        <span class="badge badge-warning navbar-badge">15</span>
-      </a>
-      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-        <span class="dropdown-item dropdown-header">15 Notifications</span>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-          <i class="fas fa-envelope mr-2"></i> 4 new messages
-          <span class="float-right text-muted text-sm">3 mins</span>
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-      </div>
-    </li>
-    <!-- Logout from system -->
-    <li class="nav-item dropdown">
-      <a class="nav-link" data-toggle="dropdown" href="#">
-        <i class="fa fa-power-off" style="color:red;"></i>
-      </a>
-      <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-        <a href="/logout" class="dropdown-item">Logout</a>
-      </div>
-    </li>
-  </ul>
-  <% } %>
-</nav>
-<!-- /.navbar -->
+    </div>
+  </nav>
+  <!-- /.navbar -->
