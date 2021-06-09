@@ -47,7 +47,18 @@ Open URL : To view the site in the browser.
 Only for demo purpose
 [https://bookstores-app.herokuapp.com](https://bookstores-app.herokuapp.com)
 
+Access : Admin Panel/Controls
+
+**URL :** [https://bookstores-app.herokuapp.com/Login](https://bookstores-app.herokuapp.com/Login)
+
+| User : | Pass : |
+| ------ | ------ |
+| admin  | 12345  |
+
+**For Educational purpose, please don't change the passwords.*
+
 #### Note:
+
 This project was tested and CI/CD implemented via Github to Heroku Server.
 Strategy for Matrix, node-version: checked for [10.x, 12.x], but don't try it simultaneously for testing, because sails orm cannot handle it by doing sails lift at the same time for multiple request, so do it sequencially.
 * **For best practices and better performance:**
