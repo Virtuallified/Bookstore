@@ -83,7 +83,7 @@ describe('Auth Controller', () => {
         .expect(404); // response : Not Found
     });
 
-    it('should login with proper credentials via post request', (done) => {
+    it('should login with proper credentials only via post request', (done) => {
       return supertest(sails.hooks.http.app)
         .post(this._url)
         .type('form')
@@ -93,7 +93,7 @@ describe('Auth Controller', () => {
           username: 'test',
           password: 'abc123'
         })
-        .expect(302, done) // response : Found (Previously "Moved temporarily")
+        .expect(401, done) // response : 401 Unauthorized
     });
 
   });
