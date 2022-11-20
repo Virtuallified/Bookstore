@@ -14,7 +14,8 @@ jobs:
   test:
     name: Running Unit Tests
     runs-on: ubuntu-latest
-
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    
     strategy:
       matrix:
         node-version: [12.x]
