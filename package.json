@@ -23,7 +23,7 @@
     "moment": "^2.25.3",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "sails": "^1.2.4",
+    "sails": "^1.5.3",
     "sails-hook-grunt": "^4.0.0",
     "sails-hook-orm": "^2.1.1",
     "sails-hook-sockets": "^2.0.0",
